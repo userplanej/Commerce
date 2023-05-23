@@ -150,6 +150,7 @@ const reshapeCollections = (collections: ShopifyCollection[]) => {
 };
 
 const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean = true) => {
+  console.log('reshapeProduct');
   if (!product || (filterHiddenProducts && product.tags.includes(HIDDEN_PRODUCT_TAG))) {
     return undefined;
   }
@@ -166,16 +167,19 @@ const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean =
 const reshapeProducts = (products: ShopifyProduct[]) => {
   const reshapedProducts = [];
 
+  console.log('reshapeProductSSSS-----------');
+  console.log(JSON.stringify(products));
   for (const product of products) {
     if (product) {
       const reshapedProduct = reshapeProduct(product);
 
       if (reshapedProduct) {
+        console.log('     reshapedProducts.push');
         reshapedProducts.push(reshapedProduct);
       }
     }
   }
-
+  console.log('reshapeProducts Return ' + reshapedProducts.length);
   return reshapedProducts;
 };
 
@@ -315,6 +319,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
 }
 
 export async function getPage(handle: string): Promise<Page> {
+  console.log(getPageQuery);
   const res = await shopifyFetch<ShopifyPageOperation>({
     query: getPageQuery,
     variables: { handle }

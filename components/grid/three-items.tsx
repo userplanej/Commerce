@@ -39,7 +39,7 @@ export async function ThreeItemGrid() {
   // Collections that start with `hidden-*` are hidden from the search page.
   const homepageItems = await getCollectionProducts('hidden-homepage-featured-items');
 
-  if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
+  //if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
 
   const [firstProduct, secondProduct, thirdProduct] = homepageItems;
 
@@ -47,7 +47,6 @@ export async function ThreeItemGrid() {
     <section className="lg:grid lg:grid-cols-6 lg:grid-rows-2" data-testid="homepage-products">
       <ThreeItemGridItem size="full" item={firstProduct} background="purple" />
       <ThreeItemGridItem size="half" item={secondProduct} background="black" />
-      <ThreeItemGridItem size="half" item={thirdProduct} background="pink" />
     </section>
   );
 }

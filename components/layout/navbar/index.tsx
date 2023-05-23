@@ -12,6 +12,9 @@ import Search from './search';
 export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
+  console.log('Navigation menu');
+  console.log(menu);
+
   return (
     <nav className="relative flex items-center justify-between bg-white p-4 dark:bg-black lg:px-6">
       <div className="block w-1/3 md:hidden">

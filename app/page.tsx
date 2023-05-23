@@ -1,7 +1,9 @@
 import { Carousel } from 'components/carousel';
+import { CtaBanner } from 'components/cta-banner';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
+import { getTranslations } from './translations.server';
 
 export const runtime = 'edge';
 
@@ -20,6 +22,14 @@ export const metadata = {
 };
 
 export default async function HomePage() {
+  const translations = await getTranslations([
+    'MockCTADescription',
+    'MockCTAHeadline',
+    'MockCTALink',
+    'Add to wishlist',
+    'Remove from wishlist'
+  ]);
+
   return (
     <>
       {/* @ts-expect-error Server Component */}
@@ -27,6 +37,13 @@ export default async function HomePage() {
       <Suspense>
         {/* @ts-expect-error Server Component */}
         <Carousel />
+        <CtaBanner
+          headline={translations.MockCTAHeadline}
+          description={translations.MockCTADescription}
+          ctaText={translations.MockCTALink}
+          ctaTo="/"
+          variant="secondary"
+        />
         <Suspense>
           {/* @ts-expect-error Server Component */}
           <Footer />
