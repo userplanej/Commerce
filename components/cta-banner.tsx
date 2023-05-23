@@ -17,9 +17,12 @@ export function CtaBanner({
   return (
     <article className=" border-t border-zinc-700 bg-gray-50 py-24 text-zinc-900 lg:py-32">
       <div className="px-4 lg:px-6">
-        <div className="lg:flex">
-          <h1 className="max-w-lg text-6xl font-bold lg:text-right">{headline}</h1>
-          <div className="mt-3 flex-1 lg:ml-8">
+        <div className="lg:grid lg:grid-cols-6">
+          <h1 className="max-w-lg text-6xl font-bold lg:col-span-2 lg:border-red-500 lg:text-right">
+            {headline}
+          </h1>
+
+          <div className="mt-3  lg:ml-8 lg:border-red-500">
             <p className="mb-4 text-xl font-light">{description}</p>
             <p>
               <Link className="group inline-flex items-center" href={ctaTo}>

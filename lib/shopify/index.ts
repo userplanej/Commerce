@@ -167,8 +167,6 @@ const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean =
 const reshapeProducts = (products: ShopifyProduct[]) => {
   const reshapedProducts = [];
 
-  console.log('reshapeProductSSSS-----------');
-  console.log(JSON.stringify(products));
   for (const product of products) {
     if (product) {
       const reshapedProduct = reshapeProduct(product);
@@ -179,7 +177,7 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
       }
     }
   }
-  console.log('reshapeProducts Return ' + reshapedProducts.length);
+
   return reshapedProducts;
 };
 
