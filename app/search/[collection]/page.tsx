@@ -35,12 +35,14 @@ export async function generateMetadata({
 export default async function CategoryPage({ params }: { params: { collection: string } }) {
   const products = await getCollectionProducts(params.collection);
 
+  console.log('search collection - products :: ' + products);
+
   return (
     <section>
       {products.length === 0 ? (
         <p className="py-3 text-lg">{`No products found in this collection`}</p>
       ) : (
-        <Grid className="grid-cols-2 lg:grid-cols-3">
+        <Grid className="grid-cols-3 lg:grid-cols-4">
           <ProductGridItems products={products} />
         </Grid>
       )}

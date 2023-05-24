@@ -1,13 +1,11 @@
 import Footer from 'components/layout/footer';
-import Collections from 'components/layout/search/collections';
-import FilterList from 'components/layout/search/filter';
-import { sorting } from 'lib/constants';
 import { Suspense } from 'react';
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense>
-      <div className="mx-auto flex max-w-7xl flex-col bg-white py-6 text-black dark:bg-black dark:text-white md:flex-row">
+    <Suspense fallback={<p>Loading feed...</p>}>
+      <div className=" mb-14  mr-1.5 mt-14 block bg-white  pl-7  text-black dark:bg-black dark:text-white">
+        {/*
         <div className="order-first flex-none md:w-1/6">
           <Collections />
         </div>
@@ -15,7 +13,10 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
         <div className="order-none md:order-last md:w-1/6 md:flex-none">
           <FilterList list={sorting} title="Sort by" />
         </div>
+      */}
+        <div className="">{children}</div>
       </div>
+
       {/* @ts-expect-error Server Component */}
       <Footer />
     </Suspense>

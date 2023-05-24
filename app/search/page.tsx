@@ -19,6 +19,15 @@ export default async function SearchPage({
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
 
   const products = await getProducts({ sortKey, reverse, query: searchValue });
+
+  // products.forEach(
+  //   async (product , index) => {
+  //     const buff = Buffer.from(product.featuredImage.url, "utf-8");
+  //     const { base64 } =  await getPlaiceholder(buff)
+  //     product['blurDataURL']=base64
+  //   }
+  // )
+
   const resultsText = products.length > 1 ? 'results' : 'result';
 
   return (
@@ -32,7 +41,7 @@ export default async function SearchPage({
         </p>
       ) : null}
       {products.length > 0 ? (
-        <Grid className="grid-cols-2 lg:grid-cols-3">
+        <Grid className="grid-cols-3 lg:grid-cols-4">
           <ProductGridItems products={products} />
         </Grid>
       ) : null}
