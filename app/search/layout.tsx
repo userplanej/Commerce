@@ -1,6 +1,6 @@
+import Loading from 'app/search/loading';
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
-import Loading from './loading';
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
