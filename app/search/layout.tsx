@@ -1,9 +1,10 @@
 import Footer from 'components/layout/footer';
 import { Suspense } from 'react';
+import Loading from './loading';
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
-    <Suspense fallback={<p>Loading feed...</p>}>
+    <Suspense fallback={<Loading />}>
       <div className=" mb-14  mr-1.5 mt-14 block bg-white  pl-7  text-black dark:bg-black dark:text-white">
         {/*
         <div className="order-first flex-none md:w-1/6">

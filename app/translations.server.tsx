@@ -175,7 +175,7 @@ let translations = {
     es: 'Dessert dragée halvah croissant.'
   },
   MockCTADescription: {
-    en: "Really make sure that you ask yourself, “Is everything I’m doing feeding this strength? Am I really, really focused on keeping all of this benefit in this lane?. 정말로 확실히 스스로에게 물어보세요. '내가 하는 모든 일이 이 강점을 키우는 데에 도움이 되는 것인가요? 나는 정말로, 정말로 이 이점을 유지하기 위해 모든 노력을 기울이고 있나요?",
+    en: "Really make sure that you ask yourself, “Is everything I’m doing feeding this strength? Am I really, really focused on keeping all of this benefit in this lane?. 정말로 확실히 스스로에게 물어보세요. '내가 하는 모든 일이 이 강점을 키우는 데에 도움이 되는 것인가요? 나는 정말로, 정말로 이 이점을 유지하기 위해 모든 노력을 기울이고 있나요? 올 여름을 겨냥한 특별한 협업이나 컬렉션이 있나? 올해 봄여름 시즌을 위해 출시한 알로하 컬렉션을 소개하고 싶다. 알로하 컬렉션의 백팩, 더플백, 힙색 등에는 하와이의 자연 환경, 해변 문화 등에서 영감을 얻은 무늬가 새겨져 있다. 허쉘 서플라이에서 이번 시즌에 처음 선보이는 여행용 캐리어도 알로하 컬렉션에 포함돼 있다.",
     es: 'Cupcake ipsum dolor sit amet lemon drops pastry cotton candy. Sweet carrot cake macaroon bonbon croissant fruitcake jujubes macaroon oat cake. Soufflé bonbon caramels jelly beans. Tiramisu sweet roll cheesecake pie carrot cake.'
   },
   MockCTALink: {
