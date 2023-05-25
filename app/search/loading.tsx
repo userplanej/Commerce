@@ -1,6 +1,7 @@
 import Grid from 'components/grid';
 
 export default function Loading() {
+  console.log('Loading............');
   return (
     <Grid className="grid-cols-3 lg:grid-cols-4">
       {Array(12)

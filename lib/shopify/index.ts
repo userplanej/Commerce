@@ -151,7 +151,6 @@ const reshapeCollections = (collections: ShopifyCollection[]) => {
 };
 
 const reshapeProduct = (product: ShopifyProduct, filterHiddenProducts: boolean = true) => {
-  console.log('reshapeProduct');
   if (!product || (filterHiddenProducts && product.tags.includes(HIDDEN_PRODUCT_TAG))) {
     return undefined;
   }
@@ -173,7 +172,6 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
       const reshapedProduct = reshapeProduct(product);
 
       if (reshapedProduct) {
-        console.log('     reshapedProducts.push');
         reshapedProducts.push(reshapedProduct);
       }
     }
