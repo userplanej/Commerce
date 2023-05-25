@@ -24,7 +24,7 @@ module.exports = {
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
-          to: { opacity: 1 }
+          to: { opacity: 0.8 }
         },
         marquee: {
           '0%': { transform: 'translateX(0%)' },

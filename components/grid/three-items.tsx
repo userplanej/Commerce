@@ -12,10 +12,11 @@ function ThreeItemGridItem({
   size: 'full' | 'half';
   background: 'white' | 'pink' | 'purple' | 'black';
 }) {
+  let div_class = size === 'full' ? 'lg:col-span-4 lg:row-span-2' : 'lg:col-span-2 lg:row-span-1';
+  div_class = div_class + ' ' + 'animate-fadeIn';
+
   return (
-    <div
-      className={size === 'full' ? 'lg:col-span-4 lg:row-span-2' : 'lg:col-span-2 lg:row-span-1'}
-    >
+    <div className={div_class}>
       <Link className="block h-full" href={`/product/${item.handle}`}>
         <GridTileImage
           src={item.featuredImage.url}
