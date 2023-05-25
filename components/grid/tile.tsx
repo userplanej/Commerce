@@ -24,7 +24,7 @@ export function GridTileImage({
     <div className="flex h-full flex-col">
       <div
         className={clsx(
-          '  relative mt-3 flex h-0 w-full flex-col items-center  justify-center overflow-hidden pt-[100%]',
+          '  relative mt-3 flex h-0  flex-col items-center  justify-center  pt-[100%]',
           {
             'bg-white dark:bg-white': background === 'white',
             'bg-[#ff0080] dark:bg-[#ff0080]': background === 'pink',
