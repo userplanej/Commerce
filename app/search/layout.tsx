@@ -5,7 +5,7 @@ import { Suspense } from 'react';
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
     <Suspense fallback={<Loading />}>
-      <div className=" mb-14  mr-1.5 mt-14 block bg-white  pl-7  text-black dark:bg-black dark:text-white">
+      <div className=" mb-14 mr-1.5 mt-14  block w-full overflow-hidden bg-white  pl-7  text-black dark:bg-black dark:text-white">
         {/*
         <div className="order-first flex-none md:w-1/6">
           <Collections />

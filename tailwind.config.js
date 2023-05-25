@@ -34,12 +34,18 @@ module.exports = {
           '0%': { opacity: 0.2 },
           '20%': { opacity: 1 },
           '100% ': { opacity: 0.2 }
+        },
+        pulse: {
+          '0%': { opacity: 0.5 },
+          '50%': { opacity: 1 },
+          '100% ': { opacity: 1 }
         }
       },
       animation: {
-        fadeIn: 'fadeIn .3s ease-in-out',
+        fadeIn: 'fadeIn 1.5s ease-in-out',
         carousel: 'marquee 60s linear infinite',
-        blink: 'blink 1.4s both infinite'
+        blink: 'blink 1.4s both infinite',
+        pulse: 'pulse 0.5s cubic-bezier(0.0, 0, 0.6, 2) infinite'
       }
     }
   },

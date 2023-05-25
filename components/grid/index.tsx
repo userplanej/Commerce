@@ -16,7 +16,15 @@ function GridItem(props: React.ComponentProps<'li'>) {
   );
 }
 
-function GridPlaceholder(props: React.ComponentProps<'li'>) {
+function GridPlaceholderRect(props: React.ComponentProps<'li'>) {
+  return (
+    <li {...props} className={clsx('relative h-full w-full transition-opacity', props.className)}>
+      <div className=" mx-4 my-4  h-20 w-20  bg-gray-50"></div>
+    </li>
+  );
+}
+
+function GridPlaceholderLine(props: React.ComponentProps<'li'>) {
   return (
     <li {...props} className={clsx('relative h-full w-full transition-opacity', props.className)}>
       <div className=" mx-4 my-4  h-64 w-64  bg-gray-50"></div>
@@ -24,6 +32,6 @@ function GridPlaceholder(props: React.ComponentProps<'li'>) {
   );
 }
 
-Grid.Placehollder = GridPlaceholder;
+Grid.PlacehollderRect = GridPlaceholderRect;
 Grid.Item = GridItem;
 export default Grid;
