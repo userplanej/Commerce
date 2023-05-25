@@ -15,7 +15,7 @@ export function CtaBanner({
   variant: 'primary' | 'secondary';
 }) {
   return (
-    <article className="  text-zinc-900 ">
+    <article className=" w-full overflow-hidden text-zinc-900 ">
       <div className="w-full overflow-hidden">
         <div className="lg:grid lg:grid-cols-6">
           <h1 className=" text-3xl font-bold lg:col-span-2  lg:h-auto lg:lg:border-2 lg:border-gray-800 lg:text-right">

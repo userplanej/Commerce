@@ -39,16 +39,14 @@ export function GridTileImage({
           }
         )}
       >
-        <div className=" absolute  left-0 top-0  h-full w-full  bg-white">
-          <div className=" relative">
-            <Image
-              className={clsx('block  h-[80%] w-[80%] ', {
-                'transition duration-300 ease-in-out hover:scale-105': isInteractive
-              })}
-              {...props}
-              alt={props.title || ''}
-            />
-          </div>
+        <div className="absolute left-10 top-0 h-full w-full  bg-white">
+          <Image
+            className={clsx('block  h-[80%] w-[80%] rounded-3xl ', {
+              'transition duration-300 ease-in-out hover:scale-105': isInteractive
+            })}
+            {...props}
+            alt={props.title || ''}
+          />
         </div>
       </div>
       {labels ? (
