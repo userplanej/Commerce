@@ -29,7 +29,9 @@ export default async function SearchPage({
   // )
 
   const resultsText = products.length > 1 ? 'results' : 'result';
-  console.log('Page............');
+
+  console.log('product list component............');
+
   return (
     <>
       {searchValue ? (
