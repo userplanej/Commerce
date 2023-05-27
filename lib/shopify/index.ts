@@ -55,7 +55,7 @@ export async function shopifyFetch<T>({
   query,
   variables,
   headers,
-  cache = 'force-cache'
+  cache = 'reload'
 }: {
   query: string;
   variables?: ExtractVariables<T>;
