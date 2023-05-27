@@ -2,7 +2,6 @@ import { Carousel } from 'components/carousel';
 import { CtaBanner } from 'components/cta-banner';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import Footer from 'components/layout/footer';
-import { Suspense } from 'react';
 import { getTranslations } from './translations.server';
 
 export const runtime = 'edge';
@@ -34,21 +33,20 @@ export default async function HomePage() {
     <>
       {/* @ts-expect-error Server Component */}
       <ThreeItemGrid />
-      <Suspense>
-        {/* @ts-expect-error Server Component */}
-        <Carousel />
-        <CtaBanner
-          headline={translations.MockCTAHeadline}
-          description={translations.MockCTADescription}
-          ctaText={translations.MockCTALink}
-          ctaTo="/"
-          variant="secondary"
-        />
-        <Suspense>
-          {/* @ts-expect-error Server Component */}
-          <Footer />
-        </Suspense>
-      </Suspense>
+
+      {/* @ts-expect-error Server Component */}
+      <Carousel />
+
+      <CtaBanner
+        headline={translations.MockCTAHeadline}
+        description={translations.MockCTADescription}
+        ctaText={translations.MockCTALink}
+        ctaTo="/"
+        variant="secondary"
+      />
+
+      {/* @ts-expect-error Server Component */}
+      <Footer />
     </>
   );
 }
