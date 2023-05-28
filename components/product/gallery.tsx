@@ -32,9 +32,7 @@ export function Gallery({
         setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
       }
     };
-    {
-      /* @ts-expect-error Server Component */
-    }
+    /* @ts-expect-error Server Component */
     const transition = document.startViewTransition(() => displayNewImage());
   }
 
@@ -46,9 +44,8 @@ export function Gallery({
     const displayNewImage = () => {
       setCurrentImage(index);
     };
-    {
-      /* @ts-expect-error Server Component */
-    }
+
+    /* @ts-expect-error Server Component */
     const transition = document.startViewTransition(() => displayNewImage());
   }
 
