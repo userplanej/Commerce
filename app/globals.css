@@ -7,3 +7,31 @@
     clip-path: inset(0.6px);
   }
 }
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(30px);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-30px);
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1.4s;
+}
+
+::view-transition-old(item-image),
+::view-transition-new(item-image) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.gallery-item {
+  view-transition-name: item-image;
+  contain: paint;
+}

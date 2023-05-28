@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import Image from 'next/image';
 
 import Price from 'components/price';
+import { ForwardedRef, forwardRef } from 'react';
 
 export function GridTileImage({
   isInteractive = true,
@@ -21,7 +22,7 @@ export function GridTileImage({
   };
 } & React.ComponentProps<typeof Image>) {
   return (
-    <div className="flex h-full flex-col">
+    <div>
       <div
         className={clsx(
           '  relative mt-3 flex h-0  flex-col items-center  justify-center  pt-[100%]',
@@ -63,3 +64,58 @@ export function GridTileImage({
     </div>
   );
 }
+
+export const RefGridImage = forwardRef(
+  (
+    {
+      isInteractive = true,
+      background,
+      active,
+      labels,
+      ...props
+    }: {
+      isInteractive?: boolean;
+      background?: 'white' | 'pink' | 'purple' | 'black' | 'purple-dark' | 'blue' | 'cyan' | 'gray';
+      active?: boolean;
+      labels?: {
+        title: string;
+        amount: string;
+        currencyCode: string;
+        isSmall?: boolean;
+      };
+    } & React.ComponentProps<typeof Image>,
+    ref: ForwardedRef<HTMLImageElement>
+  ) => {
+    return (
+      <div ref={ref}>
+        <div
+          className={clsx(
+            '  relative mt-3 flex h-0  flex-col items-center  justify-center  pt-[100%]',
+            {
+              'bg-white dark:bg-white': background === 'white',
+              'bg-[#ff0080] dark:bg-[#ff0080]': background === 'pink',
+              'bg-[#7928ca] dark:bg-[#7928ca]': background === 'purple',
+              'bg-gray-900 dark:bg-gray-900': background === 'black',
+              'bg-violetDark dark:bg-violetDark': background === 'purple-dark',
+              'bg-blue-500 dark:bg-blue-500': background === 'blue',
+              'bg-cyan-500 dark:bg-cyan-500': background === 'cyan',
+              'bg-gray-100 dark:bg-gray-100': background === 'gray',
+              'bg-gray-100 dark:bg-gray-900': !background,
+              relative: labels
+            }
+          )}
+        >
+          <div className="absolute left-10 top-0 h-full w-full  bg-white">
+            <Image
+              className={clsx('block  h-[80%] w-[80%] rounded-3xl ', {
+                'transition duration-300 ease-in-out hover:scale-105': isInteractive
+              })}
+              {...props}
+              alt={props.title || ''}
+            />
+          </div>
+        </div>
+      </div>
+    );
+  }
+);
