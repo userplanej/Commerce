@@ -32,6 +32,12 @@ export function Gallery({
         setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
       }
     };
+    // Fallback for browsers that don't support View Transitions:
+    /* @ts-expect-error  Server Component */
+    if (!document.startViewTransition) {
+      displayNewImage();
+      return;
+    }
     /* @ts-expect-error Server Component */
     const transition = document.startViewTransition(() => displayNewImage());
   }
@@ -44,6 +50,13 @@ export function Gallery({
     const displayNewImage = () => {
       setCurrentImage(index);
     };
+
+    // Fallback for browsers that don't support View Transitions:
+    /* @ts-expect-error Server Component */
+    if (!document.startViewTransition) {
+      displayNewImage();
+      return;
+    }
 
     /* @ts-expect-error Server Component */
     const transition = document.startViewTransition(() => displayNewImage());
