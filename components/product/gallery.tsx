@@ -20,15 +20,37 @@ export function Gallery({
   const [currentImage, setCurrentImage] = useState(0);
 
   function handleNavigate(direction: 'next' | 'previous') {
-    if (direction === 'next') {
-      setCurrentImage(currentImage + 1 < images.length ? currentImage + 1 : 0);
-    } else {
-      setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
+    // if (direction === 'next') {
+    //   setCurrentImage(currentImage + 1 < images.length ? currentImage + 1 : 0);
+    // } else {
+    //   setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
+    // }
+    const displayNewImage = () => {
+      if (direction === 'next') {
+        setCurrentImage(currentImage + 1 < images.length ? currentImage + 1 : 0);
+      } else {
+        setCurrentImage(currentImage === 0 ? images.length - 1 : currentImage - 1);
+      }
+    };
+    {
+      /* @ts-expect-error Server Component */
     }
+    const transition = document.startViewTransition(() => displayNewImage());
   }
 
   const buttonClassName =
     'px-9 cursor-pointer ease-in-and-out duration-200 transition-bg bg-[#7928ca] hover:bg-violetDark';
+
+  function updateView(index: number) {
+    //setCurrentImage(index)
+    const displayNewImage = () => {
+      setCurrentImage(index);
+    };
+    {
+      /* @ts-expect-error Server Component */
+    }
+    const transition = document.startViewTransition(() => displayNewImage());
+  }
 
   return (
     <div className="h-full">
@@ -79,7 +101,7 @@ export function Gallery({
                 aria-label="Enlarge product image"
                 key={image.src}
                 className="h-full w-1/4"
-                onClick={() => setCurrentImage(index)}
+                onClick={() => updateView(index)}
               >
                 <GridTileImage
                   alt={image?.altText}
