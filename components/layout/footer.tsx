@@ -1,6 +1,5 @@
 import Link from 'next/link';
 
-import GitHubIcon from 'components/icons/github';
 import LogoIcon from 'components/icons/logo';
 import VercelIcon from 'components/icons/vercel';
 import { getMenu } from 'lib/shopify';
@@ -18,7 +17,10 @@ export default async function Footer() {
       <div className="mx-auto w-full max-w-7xl overflow-hidden px-6">
         <div className="grid grid-cols-1 gap-8 border-b border-gray-700 py-12 transition-colors duration-150 lg:grid-cols-12">
           <div className="col-span-1 lg:col-span-3">
-            <a className="flex flex-initial items-center font-bold md:mr-24" href="/">
+            <a
+              className="flex flex-initial items-center font-bold md:mr-24"
+              href="http://www.userplane.co.kr"
+            >
               <span className="mr-2">
                 <LogoIcon className="h-8" />
               </span>
@@ -41,11 +43,6 @@ export default async function Footer() {
               </ul>
             </nav>
           ) : null}
-          <div className="col-span-1 text-black dark:text-white lg:col-span-2">
-            <a aria-label="Github Repository" href="https://github.com/vercel/commerce">
-              <GitHubIcon className="h-6" />
-            </a>
-          </div>
         </div>
         <div className="flex flex-col items-center justify-between space-y-4 pb-10 pt-6 text-sm md:flex-row">
           <p>

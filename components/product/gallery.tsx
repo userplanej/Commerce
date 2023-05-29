@@ -6,6 +6,7 @@ import clsx from 'clsx';
 import { GridTileImage } from 'components/grid/tile';
 import ArrowLeftIcon from 'components/icons/arrow-left';
 import { flushSync } from 'react-dom';
+import { ThumbnailImage } from './thumbnail';
 
 export function Gallery({
   title,
@@ -154,7 +155,7 @@ export function Gallery({
                 className="h-full w-1/4"
                 onClick={() => updateView(index)}
               >
-                <GridTileImage
+                <ThumbnailImage
                   alt={image?.altText}
                   src={image.src}
                   width={600}
