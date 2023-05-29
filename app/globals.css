@@ -35,3 +35,21 @@
   view-transition-name: item-image;
   contain: paint;
 }
+
+.writing-mode-v {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-align: right;
+  font-size: 7.8vw;
+  font-weight: 900;
+  color: rgb(161 161 170);
+  float: left;
+  margin: 0;
+}
+
+.writing-mode-h {
+  padding-left: 7.8vw;
+  font-size: 7.8vw;
+  font-weight: 900;
+  color: rgb(161 161 170);
+}

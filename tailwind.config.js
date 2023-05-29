@@ -40,10 +40,12 @@ module.exports = {
           '100% ': { opacity: 0.2 }
         }
       },
+      /* @keyframes duration | easing-function | delay |
+iteration-count | direction | fill-mode | play-state | name */
       animation: {
         fadeIn: 'fadeIn 1.3s ease-in-out',
         pdfadeIn: 'fadeIn .2s ease-in-out',
-        carousel: 'marquee 60s linear infinite',
+        carousel: 'marquee 10s linear infinite',
         blink: 'blink 1.4s both infinite'
       }
     }

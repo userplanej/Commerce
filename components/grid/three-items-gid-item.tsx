@@ -24,6 +24,7 @@ export default function ThreeItemGridItem({
           src={item.featuredImage.url}
           width={size === 'full' ? 1080 : 540}
           height={size === 'full' ? 1080 : 540}
+          verticalWriteMode={size === 'full' ? true : false}
           priority={true}
           background={background}
           alt={item.title}
