@@ -1,6 +1,6 @@
 import Navbar from 'components/layout/navbar';
 import { Inter } from 'next/font/google';
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import './globals.css';
 
 const { TWITTER_CREATOR, TWITTER_SITE, SITE_NAME } = process.env;
@@ -35,9 +35,10 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
     <html lang="en" className={inter.variable}>
       <body className="bg-white text-black selection:bg-teal-300 dark:bg-black dark:text-white dark:selection:bg-fuchsia-600 dark:selection:text-white">
         <div className=" h-screen w-full ">
-          {/* @ts-expect-error Server Component */}
-          <Navbar />
-
+          <Suspense fallback={<p>Loading...</p>}>
+            {/* @ts-expect-error Server Component */}
+            <Navbar />
+          </Suspense>
           <main id="content">{children}</main>
         </div>
       </body>
