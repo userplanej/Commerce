@@ -1,8 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": ">=16",
-    "pnpm": ">=7"
+    "node": ">=16"
   },
   "scripts": {
     "dev": "next dev",
@@ -11,9 +10,7 @@
     "lint": "next lint",
     "lint-staged": "lint-staged",
     "prettier": "prettier --write --ignore-unknown .",
-    "prettier:check": "prettier --check --ignore-unknown .",
-    "test": "pnpm lint && pnpm prettier:check",
-    "test:e2e": "playwright test"
+    "prettier:check": "prettier --check --ignore-unknown ."
   },
   "git": {
     "pre-commit": "lint-staged"
