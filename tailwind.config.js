@@ -43,7 +43,7 @@ module.exports = {
       /* @keyframes duration | easing-function | delay |
 iteration-count | direction | fill-mode | play-state | name */
       animation: {
-        fadeIn: 'fadeIn 1.3s ease-in-out',
+        fadeIn: 'fadeIn .9s ease-in-out',
         pdfadeIn: 'fadeIn .2s ease-in-out',
         carousel: 'marquee 10s linear infinite',
         blink: 'blink 1.4s both infinite'
