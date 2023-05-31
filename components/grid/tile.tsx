@@ -40,31 +40,28 @@ export function GridTileImage({
           ) : null
         ) : null}
         <div
-          className={clsx(
-            '  relative mt-3 flex h-0  flex-col items-center  justify-center  pt-[100%]',
-            {
-              'bg-white dark:bg-white': background === 'white',
-              'bg-[#ff0080] dark:bg-[#ff0080]': background === 'pink',
-              'bg-[#7928ca] dark:bg-[#7928ca]': background === 'purple',
-              'bg-gray-900 dark:bg-gray-900': background === 'black',
-              'bg-violetDark dark:bg-violetDark': background === 'purple-dark',
-              'bg-blue-500 dark:bg-blue-500': background === 'blue',
-              'bg-cyan-500 dark:bg-cyan-500': background === 'cyan',
-              'bg-gray-100 dark:bg-gray-100': background === 'gray',
-              'bg-gray-100 dark:bg-gray-900': !background,
-              relative: labels
-            }
-          )}
+          className={clsx('  relative mt-3 flex h-0  items-center  justify-center  pt-[100%]', {
+            'bg-white dark:bg-white': background === 'white',
+            'bg-[#ff0080] dark:bg-[#ff0080]': background === 'pink',
+            'bg-[#7928ca] dark:bg-[#7928ca]': background === 'purple',
+            'bg-gray-900 dark:bg-gray-900': background === 'black',
+            'bg-violetDark dark:bg-violetDark': background === 'purple-dark',
+            'bg-blue-500 dark:bg-blue-500': background === 'blue',
+            'bg-cyan-500 dark:bg-cyan-500': background === 'cyan',
+            'bg-gray-100 dark:bg-gray-100': background === 'gray',
+            'bg-gray-100 dark:bg-gray-900': !background
+          })}
         >
           <div
-            className={clsx('absolute top-0 h-full w-full  bg-white', {
+            className={clsx('absolute top-0 h-[100%] w-full  bg-white', {
               'left-10': decorate === true,
               'left-[2vw]': decorate === false
             })}
           >
             <Image
-              className={clsx('block  h-[80%] w-[80%] rounded-3xl ', {
-                'transition duration-300 ease-in-out hover:scale-105': isInteractive
+              className={clsx('block  h-[80%] w-[80%]  ', {
+                'transition duration-300 ease-in-out hover:scale-105': isInteractive,
+                'rounded-3xl': decorate === true
               })}
               {...props}
               alt={props.title || ''}
@@ -72,13 +69,13 @@ export function GridTileImage({
           </div>
         </div>
         {labels!.title ? (
-          <div className=" mb-5  ml-3 mt-0 flex w-3/4 text-sm text-black dark:text-white">
+          <div className=" ml-[2vw]  mt-0 block text-sm text-black dark:text-white">
             <h3>{labels!.title}</h3>
           </div>
         ) : null}
 
         {labels ? (
-          <div className=" mx-2  mb-2 mt-0 flex w-full text-sm text-black dark:text-white">
+          <div className="ml-[2vw]   mt-0 block  text-sm text-black dark:text-white">
             <Price className="" amount={labels.amount} currencyCode={labels.currencyCode} />
           </div>
         ) : null}
