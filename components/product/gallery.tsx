@@ -100,6 +100,7 @@ export function Gallery({
             isInteractive={false}
             priority={true}
             background="purple"
+            decorate={true}
             labels={{
               title,
               amount,

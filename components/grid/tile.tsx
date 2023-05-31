@@ -10,11 +10,13 @@ export function GridTileImage({
   active,
   labels,
   verticalWriteMode,
+  decorate = false,
   ...props
 }: {
   isInteractive?: boolean;
   background?: 'white' | 'pink' | 'purple' | 'black' | 'purple-dark' | 'blue' | 'cyan' | 'gray';
   verticalWriteMode?: boolean;
+  decorate?: boolean;
   active?: boolean;
   labels?: {
     title: string;
@@ -54,7 +56,12 @@ export function GridTileImage({
             }
           )}
         >
-          <div className="absolute left-10 top-0 h-full w-full  bg-white">
+          <div
+            className={clsx('absolute top-0 h-full w-full  bg-white', {
+              'left-10': decorate === true,
+              'left-[2vw]': decorate === false
+            })}
+          >
             <Image
               className={clsx('block  h-[80%] w-[80%] rounded-3xl ', {
                 'transition duration-300 ease-in-out hover:scale-105': isInteractive
