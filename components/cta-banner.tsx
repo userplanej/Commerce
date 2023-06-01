@@ -14,11 +14,11 @@ export function CtaBanner({
   variant: 'primary' | 'secondary';
 }) {
   return (
-    <article className=" relative border-t border-zinc-700 bg-gray-50 px-4 py-24 text-zinc-900 xl:flex xl:px-6 xl:py-32">
-      <h1 className="max-w-lg flex-1 text-6xl font-bold xl:text-right">{headline}</h1>
+    <article className=" relative border-t border-zinc-700 bg-gray-50 px-4 py-24 text-zinc-900 sm:flex sm:px-6 sm:py-32">
+      <h1 className="max-w-lg flex-1 text-6xl font-bold sm:text-right">{headline}</h1>
 
-      <div className="mt-3 flex-1 xl:mx-2 ">
-        <div className="mx-4 xl:absolute xl:top-2 xl:h-full">
+      <div className="mt-3 flex-1 sm:mx-2 ">
+        <div className="mx-4 sm:absolute sm:top-2 sm:h-full">
           <div className="flex  h-full  items-center justify-center">
             <p className="first-letter font-serif text-xl ">{description}</p>
           </div>

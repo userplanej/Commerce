@@ -14,10 +14,10 @@ export default function ThreeItemGridItem({
   size: 'full' | 'half';
   background: 'white' | 'pink' | 'purple' | 'black';
 }) {
-  const div_class = size === 'full' ? 'lg:col-span-4 lg:row-span-2' : 'lg:col-span-2 lg:row-span-1';
-
   return (
-    <div className={div_class}>
+    <div
+      className={size === 'full' ? 'sm:col-span-4 sm:row-span-2' : 'sm:col-span-2 sm:row-span-1'}
+    >
       <Link className="block h-full" href={`/product/${item.handle}`}>
         <GridTileImage
           src={item.featuredImage.url}
