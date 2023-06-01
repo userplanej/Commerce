@@ -20,7 +20,7 @@ export function CtaBanner({
       <div className="mt-3 flex-1 xl:mx-2 ">
         <div className="mx-4 xl:absolute xl:top-2 xl:h-full">
           <div className="flex  h-full  items-center justify-center">
-            <p className=" font-serif text-xl ">{description}</p>
+            <p className="first-letter font-serif text-xl ">{description}</p>
           </div>
         </div>
       </div>
