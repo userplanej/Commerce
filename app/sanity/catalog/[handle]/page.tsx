@@ -1,10 +1,10 @@
-import ProductGrid from 'components/sanity-ui/collection/productGrid';
+import PageHero from 'components/sanity-ui/heroes/page';
 import { clientFetch } from 'lib/sanity/sanity-rsc-config';
-import { COLLECTION_PAGE_QUERY } from 'lib/sanity/sanity.queries';
-import { groq } from 'next-sanity';
+import { SANITY_PAGE_QUERY } from 'lib/sanity/sanity.queries';
 
 export const runtime = 'edge';
 
+// TODO : sanity doc 으로부터 seo 세그먼트 읽어와서 반영
 // export async function generateMetadata({
 //   params
 // }: {
@@ -30,20 +30,16 @@ export const runtime = 'edge';
 //   };
 // }
 
-export default async function SanityCollectionPage({ params }: { params: { handle: string } }) {
-  console.log(JSON.stringify(params));
-  const page = await clientFetch(COLLECTION_PAGE_QUERY, { slug: params.handle });
-  const collection = await clientFetch(
-    groq`*[_type == 'collection'&& store.slug.current == 'sneakers']`
-  );
+export default async function SanityPagePage({ params }: { params: { handle: string } }) {
+  const page = await clientFetch(SANITY_PAGE_QUERY, { slug: params.handle });
+
+  console.log('SANITY_PAGE_QUERY : ' + JSON.stringify(page));
+
   return (
     <section>
-      <ProductGrid
-        collection={collection}
-        modules={page.modules}
-        url={`/collections/${collection.handle}`}
-        key={`${collection.handle}`}
-      />
+      {/* Page hero */}
+      <PageHero fallbackTitle={page.title} hero={page.hero} />
+      {/* Body */}
     </section>
   );
 }

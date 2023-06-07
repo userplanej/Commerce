@@ -2,8 +2,8 @@ import groq from 'groq';
 import { IMAGE } from '../image';
 import { LINK_EXTERNAL } from '../linkExternal';
 import { LINK_INTERNAL } from '../linkInternal';
-import { PRODUCT_HOTSPOT } from '../productHotspot';
-import { PRODUCT_WITH_VARIANT } from '../productWithVariant';
+import { PRODUCT_HOTSPOT } from '../product-hotspot';
+import { PRODUCT_WITH_VARIANT } from '../product-with-variant';
 
 export const MODULE_IMAGE = groq`
   image {

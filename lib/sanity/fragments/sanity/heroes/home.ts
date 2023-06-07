@@ -1,8 +1,8 @@
 import groq from 'groq';
-import { IMAGE_WITH_PRODUCT_HOTSPOTS } from '../imageWithProductHotspots';
+import { IMAGE_WITH_PRODUCT_HOTSPOTS } from '../image-with-product-hotspots';
 import { LINK_EXTERNAL } from '../linkExternal';
 import { LINK_INTERNAL } from '../linkInternal';
-import { PRODUCT_WITH_VARIANT } from '../productWithVariant';
+import { PRODUCT_WITH_VARIANT } from '../product-with-variant';
 
 export const HERO_HOME = groq`
   content[0] {

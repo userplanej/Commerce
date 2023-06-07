@@ -1,6 +1,6 @@
 import groq from 'groq';
 import { IMAGE } from './image';
-import { PRODUCT_HOTSPOT } from './productHotspot';
+import { PRODUCT_HOTSPOT } from './product-hotspot';
 
 export const IMAGE_WITH_PRODUCT_HOTSPOTS = groq`
   image {

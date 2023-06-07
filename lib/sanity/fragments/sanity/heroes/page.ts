@@ -1,6 +1,6 @@
 import groq from 'groq';
-import { IMAGE_WITH_PRODUCT_HOTSPOTS } from '../imageWithProductHotspots';
-import { PRODUCT_WITH_VARIANT } from '../productWithVariant';
+import { IMAGE_WITH_PRODUCT_HOTSPOTS } from '../image-with-product-hotspots';
+import { PRODUCT_WITH_VARIANT } from '../product-with-variant';
 
 export const HERO_PAGE = groq`
   content[0] {

@@ -4,6 +4,7 @@ import { SANITY_PAGE_QUERY } from 'lib/sanity/sanity.queries';
 
 export const runtime = 'edge';
 
+// TODO : sanity doc 으로부터 seo 세그먼트 읽어와서 반영
 // export async function generateMetadata({
 //   params
 // }: {
@@ -38,6 +39,7 @@ export default async function SanityPagePage({ params }: { params: { handle: str
     <section>
       {/* Page hero */}
       <PageHero fallbackTitle={page.title} hero={page.hero} />
+      {/* Body */}
     </section>
   );
 }

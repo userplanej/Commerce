@@ -1,7 +1,7 @@
 import groq from 'groq';
 import { LINK_EXTERNAL } from '../linkExternal';
 import { LINK_INTERNAL } from '../linkInternal';
-import { PRODUCT_WITH_VARIANT } from '../productWithVariant';
+import { PRODUCT_WITH_VARIANT } from '../product-with-variant';
 
 export const MARK_DEFS = groq`
 	...,

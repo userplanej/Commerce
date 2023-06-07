@@ -6,6 +6,8 @@ export const PRODUCT_WITH_VARIANT = groq`
     "available": !store.isDeleted && store.status == 'active',
     "gid": store.gid,
     "slug": store.slug.current,
+    "handle": store.slug.current,
+    "title": store.title,
     "variantGid": coalesce(^.variant->store.gid, store.variants[0]->store.gid)
   }
 `;

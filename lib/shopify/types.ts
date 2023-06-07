@@ -1,3 +1,8 @@
+import type {
+  MediaConnection,
+  ProductVariantConnection
+} from '@shopify/hydrogen-react/storefront-api-types';
+
 export type Maybe<T> = T | null;
 
 export type Connection<T> = {
@@ -259,5 +264,14 @@ export type ShopifyProductsOperation = {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
+  };
+};
+
+export type ProductWithNodes = Partial<Omit<Product, 'media' | 'variants'>> & {
+  media?: {
+    nodes: MediaConnection['nodes'];
+  };
+  variants: {
+    nodes: ProductVariantConnection['nodes'];
   };
 };

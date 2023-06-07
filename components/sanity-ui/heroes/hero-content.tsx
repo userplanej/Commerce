@@ -3,29 +3,23 @@ import { useMemo } from 'react';
 import ImageWithProductHotspots from '../media/image-with-product-hotspots';
 
 type Props = {
-  title: string;
   content?: SanityImageWithProductHotspots;
 };
 
-export default function HeroContent({ title, content }: Props) {
+export default function HeroContent({ content }: Props) {
   console.log('HeroContent : ' + JSON.stringify(content));
 
   const heroContent = useMemo(() => {
     switch (content?._type) {
       case 'imageWithProductHotspots': {
         return (
-          <div className="relative block w-[100vw]">
-            <div className="">
-              <ImageWithProductHotspots content={content} />
-            </div>
-            <div className="">
-              <p>{title}</p>
-            </div>
+          <div className="relative w-full">
+            <ImageWithProductHotspots content={content} />
           </div>
         );
       }
     }
-  }, [content, title]);
+  }, [content]);
 
   // case 'productWithVariant': {
   //   if (!content?.gid || !content.variantGid) {
@@ -51,7 +45,7 @@ export default function HeroContent({ title, content }: Props) {
   //   </div>
   // );
   return (
-    <div className="bg-lightGray relative flex w-full place-content-center overflow-hidden rounded-md">
+    <div className="relative flex w-full place-content-center overflow-hidden rounded-md  bg-gray-300">
       {heroContent}
     </div>
   );
