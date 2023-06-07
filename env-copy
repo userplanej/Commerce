@@ -1,0 +1,20 @@
+SHOPIFY_STORE="userplane"
+SHOPIFY_STOREFRONT_ACCESS_TOKEN="56f483f45e4187c51548bd6d76915349"
+SHOPIFY_STORE_DOMAIN="userplane.myshopify.com"
+#SHOPIFY_STORE="thatsferntastic"
+#SHOPIFY_STOREFRONT_ACCESS_TOKEN="25b59da8d066f0e64bec37246b8c2971"
+#SHOPIFY_STORE_DOMAIN="thatsferntastic.myshopify.com"
+SITE_NAME="유져플래인"
+
+## Sanity Environment Variables
+# Project ID
+SANITY_PROJECT_ID="hhf1c6ej"
+# Dataset name
+SANITY_DATASET="production"
+# (Optional) Sanity API version
+SANITY_API_VERSION="v2022-05-01"
+# Sanity token to authenticate requests in "preview" mode
+# https://www.sanity.io/docs/http-auth
+SANITY_API_TOKEN="sk5XPHDUDQWO3eJoYios376B5xAlweWLtroSIShVplKLIdquP8aFzxuKzp3a4ao1lOZ0mauvrzZ1zSPqQQfjxMGrkMl6So2s1lY2emzbbtrpWlqSH16teffQRfT54462xDI8BZONKEXhBRoIT0ZRCauq3Z0RdUzPTdMEkjcFMJrUFN4HBMMt"
+# Secret for authenticating preview mode
+SANITY_PREVIEW_SECRET=""
