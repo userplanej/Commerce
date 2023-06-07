@@ -1,8 +1,8 @@
 // import {useMatches} from '@remix-run/react';
 // import type {Product} from '@shopify/hydrogen/storefront-api-types';
-import { dataset, projectId } from 'app/sanity';
 import clsx from 'clsx';
-import SanityImage from 'components/sanity-ui/media/SanityImage';
+import SanityImage from 'components/sanity-ui/media/sanity-image';
+import { dataset, projectId } from 'lib/sanity/sanity-config';
 // import ProductHotspot from '~/components/product/Hotspot';
 // import ProductTag from '~/components/product/Tag';
 import type { SanityModuleImage } from 'lib/sanity/types';

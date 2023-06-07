@@ -127,8 +127,8 @@ export type SanityHeroHome = {
 };
 
 export type SanityHeroPage = {
-  content?: SanityImageWithProductHotspots | SanityProductWithVariant;
-  title?: string;
+  content: SanityImageWithProductHotspots[];
+  title: string;
 };
 
 export type SanityHomePage = {

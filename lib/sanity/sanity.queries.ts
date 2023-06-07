@@ -24,6 +24,12 @@ export const COLLECTION_PAGE_QUERY = groq`
   ] | order(_updatedAt desc) [0]
 `;
 
+export const SANITY_PAGE_QUERY = groq`
+ *[
+    _type == 'page'
+    && slug.current == $slug
+  ] | order(_updatedAt desc)[0]
+`;
 export const settingsQuery = groq`*[_type == "settings"][0]`;
 
 export const indexQuery = groq`

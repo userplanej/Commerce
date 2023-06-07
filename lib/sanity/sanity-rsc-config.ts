@@ -1,15 +1,30 @@
 import { createClient } from 'next-sanity';
 import { cache } from 'react';
 
-export const dataset = `${process.env.SANITY_DATASET!}`;
-export const projectId = `${process.env.SANITY_PROJECT_ID!}`;
+export const apiVersion = process.env.SANITY_API_VERSION || '2023-01-01';
 
-const apiVersion = process.env.SANITY_API_VERSION; // "2023-05-03"
+export const dataset = assertValue(
+  process.env.SANITY_DATASET,
+  'Missing environment variable: SANITY_DATASET'
+);
+
+export const projectId = assertValue(
+  process.env.SANITY_PROJECT_ID,
+  'Missing environment variable: SANITY_PROJECT_ID'
+);
+
+function assertValue<T>(v: T | undefined, errorMessage: string): T {
+  if (v === undefined) {
+    throw new Error(errorMessage);
+  }
+
+  return v;
+}
 
 // eslint-disable-next-line no-unused-vars
 const client = createClient({
-  projectId: 'hhf1c6ej',
-  dataset: 'production',
+  projectId: projectId,
+  dataset: dataset,
   apiVersion: '2022-03-25',
   useCdn: false
 });

@@ -62,6 +62,8 @@ const generateSizes = (breakpoints, sizes) => {
  */
 // @ts-expect-error
 export default function SanityImage(props) {
+  console.log('SanityImage : ' + props.src);
+
   const {
     blurDataURL,
     crop,
@@ -158,8 +160,8 @@ export default function SanityImage(props) {
   //     }}
   //   />
   // );
+
   return (
-    // eslint-disable-next-line hydrogen/prefer-image-component, jsx-a11y/alt-text
     <img
       {...rest}
       decoding="async"
