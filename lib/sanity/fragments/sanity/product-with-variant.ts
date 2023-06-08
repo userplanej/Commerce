@@ -8,6 +8,11 @@ export const PRODUCT_WITH_VARIANT = groq`
     "slug": store.slug.current,
     "handle": store.slug.current,
     "title": store.title,
-    "variantGid": coalesce(^.variant->store.gid, store.variants[0]->store.gid)
+    "variantGid": coalesce(^.variant->store.gid, store.variants[0]->store.gid),
+    "price": store.price,
+    "image": store.previewImageUrl,
+    "compareAtPrice": store.compareAtPrice,
+    "availableForSale": store.availableForSale,
+    "vendor" : store.vendor
   }
 `;

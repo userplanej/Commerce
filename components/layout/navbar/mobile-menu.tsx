@@ -64,6 +64,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
                 <ul className="flex flex-col">
                   {menu.map((item: Menu, index) => (
                     <li key={item.title}>
+                      {/* TODO bgMenu 배열 인덱스 값을 인덱스 / 4 의 나머지로 수정 */}
                       <div
                         className={clsx('text-xs leading-5', {
                           'bg-white dark:bg-white': bgMenu[index] === 'white',

@@ -3,9 +3,11 @@
 import clsx from 'clsx';
 import SanityImage from 'components/sanity-ui/media/sanity-image';
 import { dataset, projectId } from 'lib/sanity/sanity-config';
-// import ProductHotspot from '~/components/product/Hotspot';
+
 // import ProductTag from '~/components/product/Tag';
 import type { SanityModuleImage } from 'lib/sanity/types';
+import { Product } from 'lib/shopify/types';
+import ProductHotspot from '../product/hotspot';
 
 type Props = {
   module: SanityModuleImage;
@@ -23,6 +25,23 @@ export default function ImageModule({ module }: Props) {
       {/* Caption */}
 
       {/* Product hotspots */}
+      {module.variant === 'productHotspots' && (
+        <>
+          {module.productHotspots?.map((hotspot) => {
+            const storefrontProduct = hotspot?.product as unknown as Product;
+
+            return (
+              <ProductHotspot
+                key={hotspot._key}
+                storefrontProduct={storefrontProduct}
+                variantGid={hotspot?.product?.variantGid}
+                x={hotspot.x}
+                y={hotspot.y}
+              />
+            );
+          })}
+        </>
+      )}
 
       {/* Product tags */}
     </div>

@@ -1,7 +1,9 @@
+import clsx from 'clsx';
+import Footer from 'components/layout/footer';
 import PageHero from 'components/sanity-ui/heroes/page';
+import PortableText from 'components/sanity-ui/portableText/portable-text';
 import { clientFetch } from 'lib/sanity/sanity-rsc-config';
 import { SANITY_PAGE_QUERY } from 'lib/sanity/sanity.queries';
-
 export const runtime = 'edge';
 
 // TODO : sanity doc 으로부터 seo 세그먼트 읽어와서 반영
@@ -40,6 +42,18 @@ export default async function SanityPagePage({ params }: { params: { handle: str
       {/* Page hero */}
       <PageHero fallbackTitle={page.title} hero={page.hero} />
       {/* Body */}
+      {page.body && (
+        <PortableText
+          blocks={page.body}
+          centered
+          className={clsx(
+            'mx-auto max-w-[660px] px-4 pb-24 pt-8', //
+            'md:px-8'
+          )}
+        />
+      )}
+      {/* @ts-expect-error Server Component */}
+      <Footer />
     </section>
   );
 }
