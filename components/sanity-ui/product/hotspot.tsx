@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import Link from 'next/link';
 
-import Tippy from '@tippyjs/react/headless';
+import Tippy, { TippyProps } from '@tippyjs/react/headless';
 import { Product } from 'lib/shopify/types';
 import ProductTile from './tile';
 
@@ -20,10 +20,15 @@ export default function ProductHotspot({ storefrontProduct, x, y }: Props) {
   if (!storefrontProduct) {
     return null;
   }
-
+  const defaultTippyProps: Omit<TippyProps, 'content' | 'children'> = {
+    hideOnClick: false,
+    interactive: true,
+    sticky: true
+  };
   return (
     <Tippy
       placement="top"
+      {...defaultTippyProps}
       render={() => {
         return <ProductTile storefrontProduct={storefrontProduct} />;
       }}
