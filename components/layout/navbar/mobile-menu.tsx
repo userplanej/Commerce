@@ -1,6 +1,7 @@
 'use client';
 
 import { Dialog } from '@headlessui/react';
+import clsx from 'clsx';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
@@ -15,6 +16,7 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const [mobileMenuIsOpen, setMobileMenuIsOpen] = useState(false);
+  const bgMenu: string[] = ['green', 'yellow', 'red', 'white'];
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,6 +60,36 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
             className="flex w-full flex-col bg-white pb-6 dark:bg-black"
           >
             <div className="p-4">
+              {menu.length ? (
+                <ul className="flex flex-col">
+                  {menu.map((item: Menu, index) => (
+                    <li key={item.title}>
+                      <div
+                        className={clsx('text-xs leading-5', {
+                          'bg-white dark:bg-white': bgMenu[index] === 'white',
+                          'bg-green-400 dark:bg-green-300': bgMenu[index] === 'green',
+                          'bg-yellow-300 dark:bg-green-300': bgMenu[index] === 'yellow',
+                          'bg-red-500 dark:bg-green-300': bgMenu[index] === 'red'
+                        })}
+                      >
+                        <Link
+                          href={item.path}
+                          className="rounded-lg py-1 text-xl text-black transition-colors hover:text-gray-500 dark:text-white"
+                          onClick={() => {
+                            setMobileMenuIsOpen(false);
+                          }}
+                        >
+                          {item.title}
+                        </Link>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+
+              <div className="mb-4 mt-16 w-full">
+                <Search />
+              </div>
               <button
                 className="mb-4"
                 onClick={() => {
@@ -68,27 +100,6 @@ export default function MobileMenu({ menu }: { menu: Menu[] }) {
               >
                 <CloseIcon className="h-6" />
               </button>
-
-              <div className="mb-4 w-full">
-                <Search />
-              </div>
-              {menu.length ? (
-                <ul className="flex flex-col">
-                  {menu.map((item: Menu) => (
-                    <li key={item.title}>
-                      <Link
-                        href={item.path}
-                        className="rounded-lg py-1 text-xl text-black transition-colors hover:text-gray-500 dark:text-white"
-                        onClick={() => {
-                          setMobileMenuIsOpen(false);
-                        }}
-                      >
-                        {item.title}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              ) : null}
             </div>
           </Dialog.Panel>
         </div>
