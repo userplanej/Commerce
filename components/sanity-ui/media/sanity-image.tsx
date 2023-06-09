@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/filename-case */
-// TODO: TS this file
 import imageUrlBuilder from '@sanity/image-url';
+import Image from 'next/image';
 
 const BREAKPOINTS = [640, 768, 1024, 1280, 1536]; // px
 
@@ -63,7 +63,7 @@ const generateSizes = (breakpoints, sizes) => {
 // @ts-expect-error
 export default function SanityImage(props) {
   console.log('SanityImage : ' + props.src);
-
+  console.log('layout : ' + props.layout);
   const {
     blurDataURL,
     crop,
@@ -134,41 +134,19 @@ export default function SanityImage(props) {
   // @ts-expect-error
   urlDefault = urlDefault.url();
 
-  // return (
-  //   <Image
-  //     {...rest}
-  //     decoding="async"
-  //     //src={blurDataURL}
-  //     sizes={srcSetSizes}
-  //     src={urlDefault}
-  //     srcSet={srcSet}
-  //     style={{
-  //       ...(layout === 'fill' && {
-  //         bottom: 0,
-  //         height: '100%',
-  //         left: 0,
-  //         objectFit,
-  //         position: 'absolute',
-  //         right: 0,
-  //         top: 0,
-  //         width: '100%',
-  //       }),
-  //       ...(layout === 'responsive' && {
-  //         aspectRatio,
-  //         width: '100%',
-  //       }),
-  //     }}
-  //   />
-  // );
-
   return (
-    <img
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <Image
       {...rest}
+      alt="..."
       decoding="async"
       //src={blurDataURL}
       sizes={srcSetSizes}
       src={urlDefault}
       srcSet={srcSet}
+      fill={false}
+      width={1024}
+      height={1024}
       style={{
         ...(layout === 'fill' && {
           bottom: 0,
@@ -187,4 +165,31 @@ export default function SanityImage(props) {
       }}
     />
   );
+
+  // return (
+  //   <img
+  //     {...rest}
+  //     decoding="async"
+  //     //src={blurDataURL}
+  //     sizes={srcSetSizes}
+  //     src={urlDefault}
+  //     srcSet={srcSet}
+  //     style={{
+  //       ...(layout === 'fill' && {
+  //         bottom: 0,
+  //         height: '100%',
+  //         left: 0,
+  //         objectFit,
+  //         position: 'absolute',
+  //         right: 0,
+  //         top: 0,
+  //         width: '100%'
+  //       }),
+  //       ...(layout === 'responsive' && {
+  //         aspectRatio,
+  //         width: '100%'
+  //       })
+  //     }}
+  //   />
+  // );
 }

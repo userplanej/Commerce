@@ -1,6 +1,6 @@
+import ImageWithProductHotspots from 'components/sanity-ui/media/image-with-product-hotspots';
 import type { SanityImageWithProductHotspots } from 'lib/sanity/types';
 import { useMemo } from 'react';
-import ImageWithProductHotspots from '../media/image-with-product-hotspots';
 
 type Props = {
   content?: SanityImageWithProductHotspots;
@@ -13,7 +13,7 @@ export default function HeroContent({ content }: Props) {
     switch (content?._type) {
       case 'imageWithProductHotspots': {
         return (
-          <div className="relative w-full">
+          <div className="relative w-full animate-fadeIn">
             <ImageWithProductHotspots content={content} />
           </div>
         );

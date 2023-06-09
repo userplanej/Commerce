@@ -1,8 +1,8 @@
 // import CallToActionModule from '~/components/modules/CallToAction';
 // import CollectionModule from '~/components/modules/Collection';
-import ImageModule from 'components/sanity-ui/modules/image';
 // import InstagramModule from '~/components/modules/Instagram';
 
+import ImageModule from 'components/sanity-ui/modules/image';
 import type { SanityModule } from 'lib/sanity/types';
 import CalloutModule from './callout';
 import ProductModule from './product';

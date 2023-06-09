@@ -30,7 +30,7 @@ export default function PageHero({ fallbackTitle, hero }: Props) {
     <div
       className={clsx(
         'rounded-b-xl bg-[#ffdecc] px-4 pb-4 pt-24', //
-        'md:pt-34 md:px-8 md:pb-8'
+        'md:px-8 md:pb-8 md:pt-[136px]'
       )}
       style={{ background: colorTheme?.background }}
     >
