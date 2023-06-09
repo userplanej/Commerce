@@ -2,6 +2,7 @@ import { dataset, projectId } from 'lib/sanity/sanity-config';
 import { SanityImageWithProductHotspots } from 'lib/sanity/types';
 import { Product } from 'lib/shopify/types';
 
+import clsx from 'clsx';
 import { Suspense } from 'react';
 import ProductHotspot from '../product/hotspot';
 import SanityImage from './sanity-image';
@@ -11,13 +12,10 @@ type Props = {
 };
 
 export default function ImageWithProductHotspots({ content }: Props) {
-  const sanityDataset = dataset,
-    sanityProjectID = projectId;
-
-  console.log('ImageWithProductHotspots content : ' + JSON.stringify(content));
-
   return (
     <>
+      <ImageContent content={content} />
+
       <Suspense fallback={<p>Loading...</p>}>
         {content.productHotspots?.map((hotspot) => {
           const storefrontProduct = hotspot?.product as unknown as Product;
@@ -37,18 +35,35 @@ export default function ImageWithProductHotspots({ content }: Props) {
           );
         })}
       </Suspense>
-
-      <SanityImage
-        alt={content?.image?.altText}
-        crop={content?.image?.crop}
-        dataset={sanityDataset}
-        hotspot={content?.image?.hotspot}
-        layout="responsive"
-        objectFit="cover"
-        projectId={sanityProjectID}
-        sizes="w-full"
-        src={content?.image?.asset?._ref}
-      />
     </>
   );
 }
+
+const ImageContent = ({ content }: Props) => {
+  const image = content.image;
+
+  const sanityDataset = dataset,
+    sanityProjectID = projectId;
+
+  return (
+    <div
+      className={clsx(
+        'relative overflow-hidden rounded transition-[border-radius] duration-500 ease-out',
+        'group-hover:rounded-xl'
+      )}
+    >
+      <SanityImage
+        alt={image?.altText ? image.altText : '...'}
+        blurDataURL={image?.blurDataURL}
+        crop={image?.crop}
+        dataset={sanityDataset}
+        hotspot={image?.hotspot}
+        layout="responsive"
+        projectId={sanityProjectID}
+        sizes={['100dvw']}
+        src={image?.asset?._ref}
+        priority={true}
+      />
+    </div>
+  );
+};

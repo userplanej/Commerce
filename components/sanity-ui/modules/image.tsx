@@ -57,12 +57,10 @@ const ImageContent = ({ module }: Props) => {
 
   return (
     <div
-      className={clsx(
-        'relative overflow-hidden rounded transition-[border-radius] duration-500 ease-out',
-        'group-hover:rounded-xl'
-      )}
+      className={clsx('relative animate-fadeIn overflow-hidden rounded', 'group-hover:rounded-xl')}
     >
       <SanityImage
+        alt={image?.altText ? image.altText : '...'}
         blurDataURL={image?.blurDataURL}
         crop={image?.crop}
         dataset={sanityDataset}

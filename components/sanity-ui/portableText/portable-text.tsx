@@ -2,7 +2,7 @@
 
 import { PortableTextComponents, PortableText as PortableTextReact } from '@portabletext/react';
 import clsx from 'clsx';
-import { useMemo } from 'react';
+import { Suspense, useMemo } from 'react';
 
 import type { PortableTextBlock } from '@sanity/types';
 
@@ -47,9 +47,11 @@ export default function PortableText({ blocks, centered, className }: Props) {
 
   const portableText = useMemo(() => {
     return (
-      <div className={clsx('portableText', className)}>
-        <PortableTextReact value={blocks} components={components} />
-      </div>
+      <Suspense fallback={<p>Loading...</p>}>
+        <div className={clsx('portableText', className)}>
+          <PortableTextReact value={blocks} components={components} />
+        </div>
+      </Suspense>
     );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blocks]);

@@ -62,9 +62,8 @@ const generateSizes = (breakpoints, sizes) => {
  */
 // @ts-expect-error
 export default function SanityImage(props) {
-  console.log('SanityImage : ' + props.src);
-  console.log('layout : ' + props.layout);
   const {
+    alt,
     blurDataURL,
     crop,
     dataset,
@@ -135,16 +134,13 @@ export default function SanityImage(props) {
   urlDefault = urlDefault.url();
 
   return (
-    // eslint-disable-next-line jsx-a11y/alt-text
     <Image
       {...rest}
-      alt="..."
-      decoding="async"
+      alt={alt}
       //src={blurDataURL}
       sizes={srcSetSizes}
       src={urlDefault}
       srcSet={srcSet}
-      fill={false}
       width={1024}
       height={1024}
       style={{
@@ -165,31 +161,4 @@ export default function SanityImage(props) {
       }}
     />
   );
-
-  // return (
-  //   <img
-  //     {...rest}
-  //     decoding="async"
-  //     //src={blurDataURL}
-  //     sizes={srcSetSizes}
-  //     src={urlDefault}
-  //     srcSet={srcSet}
-  //     style={{
-  //       ...(layout === 'fill' && {
-  //         bottom: 0,
-  //         height: '100%',
-  //         left: 0,
-  //         objectFit,
-  //         position: 'absolute',
-  //         right: 0,
-  //         top: 0,
-  //         width: '100%'
-  //       }),
-  //       ...(layout === 'responsive' && {
-  //         aspectRatio,
-  //         width: '100%'
-  //       })
-  //     }}
-  //   />
-  // );
 }
