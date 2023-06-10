@@ -270,9 +270,15 @@ export type SanityProductWithVariant = {
   _key?: string;
   _type: 'productWithVariant';
   available: boolean;
+  compareAtPrice: string;
+  price: string;
+  vendor: string;
   gid: string;
   slug?: string;
   variantGid: string;
+  image: string;
+  title: string;
+  handle: string;
 };
 
 export type SanityProductPage = {

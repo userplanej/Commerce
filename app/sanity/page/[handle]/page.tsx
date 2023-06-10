@@ -35,7 +35,7 @@ export const runtime = 'edge';
 export default async function SanityPagePage({ params }: { params: { handle: string } }) {
   const page = await clientFetch(SANITY_PAGE_QUERY, { slug: params.handle });
 
-  console.log('SANITY_PAGE_QUERY : ' + JSON.stringify(page));
+  //console.log('SANITY_PAGE_QUERY : ' +SANITY_PAGE_QUERY);
 
   return (
     <section>

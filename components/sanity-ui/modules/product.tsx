@@ -1,5 +1,4 @@
 import { SanityModuleProduct } from 'lib/sanity/types';
-import { ShopifyProduct } from 'lib/shopify/types';
 import ProductPill from '../product/pill';
 
 type Props = {
@@ -9,8 +8,9 @@ type Props = {
 };
 
 export default function ProductModule({ imageAspectClassName, layout = 'card', module }: Props) {
+  //const productGid = module?.productWithVariant?.gid;
   const productVariantGid = module?.productWithVariant?.variantGid;
-  const storefrontProduct = module?.productWithVariant as unknown as ShopifyProduct;
+  const storefrontProduct = module?.productWithVariant;
 
   if (!storefrontProduct) {
     return null;
