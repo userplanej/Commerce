@@ -1,9 +1,9 @@
 import ImageWithProductHotspots from 'components/sanity-ui/media/image-with-product-hotspots';
-import type { SanityImageWithProductHotspots } from 'lib/sanity/types';
+import type { SanityImageWithProductHotspots, SanityProductWithVariant } from 'lib/sanity/types';
 import { useMemo } from 'react';
 
 type Props = {
-  content?: SanityImageWithProductHotspots;
+  content?: SanityImageWithProductHotspots | SanityProductWithVariant;
 };
 
 export default function HeroContent({ content }: Props) {

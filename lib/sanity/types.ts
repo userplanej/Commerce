@@ -1,48 +1,7 @@
 import type { Image, PortableTextBlock } from '@sanity/types';
 
-// import type {
-//   Customer,
-//   MailingAddress,
-//   MailingAddressConnection,
-//   MediaConnection,
-//   Order,
-//   OrderLineItemConnection,
-//   ProductVariantConnection
-// } from '@shopify/hydrogen-react/storefront-api-types';
-
-// export type CollectionWithNodes = Partial<Omit<Collection, 'products'>> & {
-//   products: {
-//     nodes: ProductWithNodes[];
-//   };
-// };
-
-// export type CustomerWithNodes = Omit<Customer, 'addresses' | 'orders'> & {
-//   addresses: {
-//     nodes: MailingAddressConnection['nodes'];
-//   };
-//   orders: {
-//     nodes: OrderWithNodes[];
-//   };
-// };
-
-// export type MailingAddressExtended = MailingAddress & {
-//   originalId: string;
-// };
-
-// export type OrderWithNodes = Omit<Order, 'lineItems'> & {
-//   lineItems: {
-//     nodes: OrderLineItemConnection['nodes'];
-//   };
-// };
-
-// export type ProductWithNodes = Partial<Omit<Product, 'media' | 'variants'>> & {
-//   media?: {
-//     nodes: MediaConnection['nodes'];
-//   };
-//   variants: {
-//     nodes: ProductVariantConnection['nodes'];
-//   };
-// };
+import type { ProductWithNodes } from 'lib/sanity/shopify';
+import type { SanityColorTheme } from 'lib/theme';
 
 export interface SanityAssetImage extends Image {
   _type: 'image';
@@ -82,11 +41,6 @@ export type SanityCollectionGroup = {
   title: string;
 };
 
-export type SanityColorTheme = {
-  background: string;
-  text: string;
-};
-
 export type SanityCustomProductOption =
   | SanityCustomProductOptionColor
   | SanityCustomProductOptionSize;
@@ -118,17 +72,20 @@ export type SanityHeroCollection = {
   content?: SanityImageWithProductHotspots | SanityProductWithVariant;
   description?: string;
   title?: string;
+  data?: ProductWithNodes[] | ProductWithNodes;
 };
 
 export type SanityHeroHome = {
   content?: SanityImageWithProductHotspots | SanityProductWithVariant;
   link?: SanityLink;
   title?: string;
+  data?: ProductWithNodes[] | ProductWithNodes;
 };
 
 export type SanityHeroPage = {
-  content: SanityImageWithProductHotspots;
-  title: string;
+  content?: SanityImageWithProductHotspots | SanityProductWithVariant;
+  title?: string;
+  data?: ProductWithNodes[] | ProductWithNodes;
 };
 
 export type SanityHomePage = {

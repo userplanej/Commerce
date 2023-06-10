@@ -1,8 +1,3 @@
-import type {
-  MediaConnection,
-  ProductVariantConnection
-} from '@shopify/hydrogen-react/storefront-api-types';
-
 export type Maybe<T> = T | null;
 
 export type Connection<T> = {
@@ -127,7 +122,6 @@ export type ShopifyProduct = {
   };
   variants: Connection<ProductVariant>;
   featuredImage: Image;
-  image: Image;
   images: Connection<Image>;
   seo: SEO;
   tags: string[];
@@ -207,6 +201,8 @@ export type ShopifyCollectionProductsOperation = {
   };
   variables: {
     handle: string;
+    reverse?: boolean;
+    sortKey?: string;
   };
 };
 
@@ -265,14 +261,5 @@ export type ShopifyProductsOperation = {
     query?: string;
     reverse?: boolean;
     sortKey?: string;
-  };
-};
-
-export type ProductWithNodes = Partial<Omit<Product, 'media' | 'variants'>> & {
-  media?: {
-    nodes: MediaConnection['nodes'];
-  };
-  variants: {
-    nodes: ProductVariantConnection['nodes'];
   };
 };

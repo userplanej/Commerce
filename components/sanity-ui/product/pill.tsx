@@ -1,9 +1,9 @@
 import clsx from 'clsx';
 import { getProductOptionString, hasMultipleProductOptions } from 'lib/sanity/utils';
-import { ShopifyProduct } from 'lib/shopify/types';
 import Link from 'next/link';
 import Badge from '../elements/badge';
 
+import { ProductWithNodes } from 'lib/sanity/shopify';
 import { Skeleton } from '../skeleton';
 
 /**
@@ -12,25 +12,22 @@ import { Skeleton } from '../skeleton';
 
 type Props = {
   onClick?: () => void;
-  storefrontProduct: ShopifyProduct;
+  storefrontProduct: ProductWithNodes;
   variantGid?: string;
 };
 
-export default function ProductPill({ onClick, storefrontProduct }: Props) {
-  const firstVariant = storefrontProduct;
-  //   useGid<ProductVariant>(variantGid) ??
-  //   storefrontProduct.variants.nodes.find(
-  //     (variant) => variant.id == variantGid,
-  //   ) ??
-  //   storefrontProduct.variants.nodes[0];
+export default function ProductPill({ onClick, storefrontProduct, variantGid }: Props) {
+  const firstVariant =
+    storefrontProduct.variants.nodes.find((variant) => variant.id == variantGid) ??
+    storefrontProduct.variants.nodes[0];
 
-  // if (firstVariant == null) {
-  //   return null;
-  // }
+  if (firstVariant == null) {
+    return null;
+  }
 
   const multipleProductOptions = hasMultipleProductOptions(storefrontProduct.options);
   const productOptions = getProductOptionString(storefrontProduct.options);
-  const { availableForSale, image } = firstVariant;
+  const { availableForSale, compareAtPrice, image, price } = firstVariant;
 
   return (
     <Link onClick={onClick} href={`/product/${storefrontProduct.handle}`}>
@@ -62,6 +59,7 @@ export default function ProductPill({ onClick, storefrontProduct }: Props) {
             {/* Badges */}
             <div className="absolute left-2 top-2">
               {/* Sale */}
+              {availableForSale && compareAtPrice && <Badge label="Sale" small tone="critical" />}
 
               {/* Sold out */}
               {!availableForSale && <Badge label="Sold out" small />}
