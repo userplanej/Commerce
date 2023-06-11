@@ -13,6 +13,7 @@ import Block from './blocks/block';
 import CalloutBlock from './blocks/callout';
 import ImagesBlock from './blocks/images';
 import ProductsBlock from './blocks/products';
+import YoutubeBlock from './blocks/youtube';
 
 const SHARED_LIST_CLASSES = clsx(
   'first:mt-0 last:mb-0', //
@@ -41,7 +42,8 @@ export default function PortableText({ blocks, centered, className }: Props) {
       blockAccordion: AccordionBlock,
       blockCallout: (props: any) => <CalloutBlock centered={centered} {...props} />,
       blockImages: (props: any) => <ImagesBlock centered={centered} {...props} />,
-      blockProducts: ProductsBlock
+      blockProducts: ProductsBlock,
+      blockYoutube: (props: any) => <YoutubeBlock centered={centered} {...props} />
     }
   };
 

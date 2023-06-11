@@ -14,7 +14,7 @@ export default function AccordionBlock({ value }: Props) {
   return (
     <div
       className={clsx(
-        'first:mt-0 last:mb-0', //
+        'relative first:mt-0 last:mb-0', //
         'my-8'
       )}
     >

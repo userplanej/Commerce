@@ -35,7 +35,7 @@ export const runtime = 'edge';
 export default async function SanityPagePage({ params }: { params: { handle: string } }) {
   const page = await clientFetch(SANITY_PAGE_QUERY, { slug: params.handle });
 
-  //console.log('SANITY_PAGE_QUERY : ' +SANITY_PAGE_QUERY);
+  console.log('SANITY_PAGE_QUERY : ' + SANITY_PAGE_QUERY);
 
   return (
     <section>
@@ -47,7 +47,7 @@ export default async function SanityPagePage({ params }: { params: { handle: str
           blocks={page.body}
           centered
           className={clsx(
-            'mx-auto max-w-[660px] px-4 pb-24 pt-8', //
+            'mx-auto flex  max-w-[660px] flex-col px-4 pb-24 pt-8', //
             'md:px-8'
           )}
         />

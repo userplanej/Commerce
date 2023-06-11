@@ -129,6 +129,7 @@ export type SanityModule =
   | SanityModuleGrid
   | SanityModuleImage
   | SanityModuleInstagram
+  | SanityModuleYoutube
   | SanityModuleProduct;
 
 export type SanityModuleAccordion = {
@@ -227,6 +228,12 @@ export type SanityModuleImages = {
 export type SanityModuleInstagram = {
   _key?: string;
   _type: 'module.instagram';
+  url: string;
+};
+
+export type SanityModuleYoutube = {
+  _key?: string;
+  _type: 'module.youtube';
   url: string;
 };
 
