@@ -1,13 +1,14 @@
-// import {useMatches} from '@remix-run/react';
-// import type {Product} from '@shopify/hydrogen/storefront-api-types';
 import clsx from 'clsx';
-import SanityImage from 'components/sanity-ui/media/sanity-image';
 import { dataset, projectId } from 'lib/sanity/sanity-config';
 
 // import ProductTag from '~/components/product/Tag';
 import type { SanityModuleImage } from 'lib/sanity/types';
 import { Product } from 'lib/shopify/types';
+
+//import SanityImage from 'components/sanity-ui/media/sanity-image';
+import dynamic from 'next/dynamic';
 import ProductHotspot from '../product/hotspot';
+const SanityImage = dynamic(() => import('components/sanity-ui/media/sanity-image'));
 
 type Props = {
   module: SanityModuleImage;
@@ -56,9 +57,7 @@ const ImageContent = ({ module }: Props) => {
     sanityProjectID = projectId;
 
   return (
-    <div
-      className={clsx('relative animate-fadeIn overflow-hidden rounded', 'group-hover:rounded-xl')}
-    >
+    <div className={clsx('relative overflow-hidden rounded', 'group-hover:rounded-xl')}>
       <SanityImage
         alt={image?.altText ? image.altText : '...'}
         blurDataURL={image?.blurDataURL}

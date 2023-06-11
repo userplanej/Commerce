@@ -62,7 +62,6 @@ const ImageContent = ({ content }: Props) => {
         projectId={sanityProjectID}
         sizes={['100dvw']}
         src={image?.asset?._ref}
-        priority={true}
       />
     </div>
   );

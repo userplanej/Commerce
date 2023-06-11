@@ -1,5 +1,6 @@
-/* eslint-disable unicorn/filename-case */
 import imageUrlBuilder from '@sanity/image-url';
+import { useInView } from 'react-intersection-observer';
+
 import Image from 'next/image';
 
 const BREAKPOINTS = [640, 768, 1024, 1280, 1536]; // px
@@ -80,6 +81,14 @@ export default function SanityImage(props) {
     ...rest
   } = props;
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    // rootMargin: '0px 0px',
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+  });
+
   if (!dataset) {
     throw new Error('SanityImage is missing required "dataset" property.');
   }
@@ -134,31 +143,37 @@ export default function SanityImage(props) {
   urlDefault = urlDefault.url();
 
   return (
-    <Image
-      {...rest}
-      alt={alt}
-      //src={blurDataURL}
-      sizes={srcSetSizes}
-      src={urlDefault}
-      srcSet={srcSet}
-      width={1024}
-      height={1024}
-      style={{
-        ...(layout === 'fill' && {
-          bottom: 0,
-          height: '100%',
-          left: 0,
-          objectFit,
-          position: 'absolute',
-          right: 0,
-          top: 0,
-          width: '100%'
-        }),
-        ...(layout === 'responsive' && {
-          aspectRatio,
-          width: '100%'
-        })
-      }}
-    />
+    <div ref={ref}>
+      {inView ? (
+        <Image
+          {...rest}
+          alt={alt}
+          className="animate-fadeIn"
+          //src={blurDataURL}
+          sizes={srcSetSizes}
+          src={urlDefault}
+          srcSet={srcSet}
+          width={1024}
+          height={1024}
+          style={{
+            ...(layout === 'fill' && {
+              bottom: 0,
+              height: '100%',
+              left: 0,
+              objectFit,
+              position: 'absolute',
+              right: 0,
+              top: 0,
+              width: '100%'
+            }),
+            ...(layout === 'responsive' && {
+              aspectRatio,
+              width: '100%'
+            })
+          }}
+          loading="lazy"
+        />
+      ) : null}
+    </div>
   );
 }
