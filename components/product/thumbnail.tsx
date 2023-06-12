@@ -20,7 +20,7 @@ export function ThumbnailImage({
   return (
     <div>
       <div className="relative block aspect-square overflow-hidden">
-        <Image {...props} alt={props.title || ''} fill={true} />
+        <Image {...props} alt={props.title || ''} />
       </div>
     </div>
   );

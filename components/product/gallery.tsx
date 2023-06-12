@@ -159,8 +159,7 @@ export function Gallery({
                 <ThumbnailImage
                   alt={image?.altText}
                   src={image.src}
-                  width={600}
-                  height={600}
+                  fill={true}
                   background="purple-dark"
                   active={isActive}
                 />
