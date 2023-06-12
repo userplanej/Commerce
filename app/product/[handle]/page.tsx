@@ -57,9 +57,6 @@ export default async function ProductPage({ params }: { params: { handle: string
   const product = await getProduct(params.handle);
 
   if (!product) return notFound();
-
-  console.log('product item component............');
-
   return (
     <div>
       <div className="lg:grid lg:grid-cols-6">

@@ -1,4 +1,7 @@
 import { createClient } from 'next-sanity';
+
+import SanityClient from 'next-sanity-client';
+
 import { cache } from 'react';
 
 export const apiVersion = process.env.SANITY_API_VERSION || '2023-01-01';
@@ -21,7 +24,12 @@ function assertValue<T>(v: T | undefined, errorMessage: string): T {
   return v;
 }
 
-// eslint-disable-next-line no-unused-vars
+export const sanityClient = new SanityClient({
+  projectId: projectId,
+  dataset: dataset,
+  useCdn: false
+});
+
 const client = createClient({
   projectId: projectId,
   dataset: dataset,
@@ -30,10 +38,3 @@ const client = createClient({
 });
 
 export const clientFetch = cache(client.fetch.bind(client));
-// Wrap the cache function in a way that reuses the TypeScript definitions
-//const clientFetch = cache(client.fetch.bind(client))
-
-// Now use it just like before, fully deduped, cached and optimized by react
-//const data = await clientFetch(groq`*[]`)
-// You can use the same generics as before
-//const total = await clientFetch<number>(groq`count*()`)

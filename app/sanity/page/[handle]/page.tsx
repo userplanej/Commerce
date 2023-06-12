@@ -2,8 +2,9 @@ import clsx from 'clsx';
 import Footer from 'components/layout/footer';
 import PageHero from 'components/sanity-ui/heroes/page';
 import PortableText from 'components/sanity-ui/portableText/portable-text';
-import { clientFetch } from 'lib/sanity/sanity-rsc-config';
+import { sanityClient } from 'lib/sanity/sanity-rsc-config';
 import { SANITY_PAGE_QUERY } from 'lib/sanity/sanity.queries';
+import { SanityPage } from 'lib/sanity/types';
 export const runtime = 'edge';
 
 // TODO : sanity doc 으로부터 seo 세그먼트 읽어와서 반영
@@ -33,14 +34,23 @@ export const runtime = 'edge';
 // }
 
 export default async function SanityPagePage({ params }: { params: { handle: string } }) {
-  const page = await clientFetch(SANITY_PAGE_QUERY, { slug: params.handle });
+  //const page = await clientFetch(SANITY_PAGE_QUERY, { slug: params.handle });
 
+  const page = await sanityClient.fetch<SanityPage>({
+    query: SANITY_PAGE_QUERY,
+    params: {
+      slug: params.handle
+    },
+    config: {
+      next: { revalidate: 60 }
+    }
+  });
   //console.log('SANITY_PAGE_QUERY : ' + SANITY_PAGE_QUERY);
 
   return (
     <section>
       {/* Page hero */}
-      <PageHero fallbackTitle={page.title} hero={page.hero} />
+      <PageHero fallbackTitle={page.title} hero={page.hero!} />
       {/* Body */}
       {page.body && (
         <PortableText

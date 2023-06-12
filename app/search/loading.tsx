@@ -1,5 +1,4 @@
 export default function Loading() {
-  console.log('Loading............');
   return (
     <div className="flex animate-pulse flex-col">
       <ul>

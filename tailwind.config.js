@@ -24,7 +24,7 @@ module.exports = {
       keyframes: {
         fadeIn: {
           from: { opacity: 0 },
-          to: { opacity: 0.8 }
+          to: { opacity: 1.0 }
         },
         pdfadeIn: {
           from: { opacity: 0 },

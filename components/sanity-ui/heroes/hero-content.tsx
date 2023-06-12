@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function HeroContent({ content }: Props) {
-  console.log('HeroContent : ' + JSON.stringify(content));
+  //console.log('HeroContent : ' + JSON.stringify(content));
 
   const heroContent = useMemo(() => {
     switch (content?._type) {
