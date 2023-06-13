@@ -33,6 +33,19 @@ export default function Block({ children, value }: Props) {
       </div>
     );
   }
+  if (value.style === 'h2-green') {
+    return (
+      <div className="relative left-1/2 right-1/2 my-12 ml-[-50vw] mr-[-50vw] w-screen px-6 first:mt-0 last:mb-0 md:px-8">
+        <div className="mx-auto w-full max-w-[1400px]">
+          <div className="mr-auto flex flex-col items-start ">
+            <h2 className="bg-gradient-to-r from-lime-400 to-green-600 bg-clip-text text-3xl font-semibold  text-transparent ">
+              {children}
+            </h2>
+          </div>
+        </div>
+      </div>
+    );
+  }
   if (value.style === 'h3') {
     return <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">{children}</h2>;
   }
