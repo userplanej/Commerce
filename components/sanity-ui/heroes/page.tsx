@@ -37,10 +37,7 @@ export default function PageHero({ fallbackTitle, hero }: Props) {
       {/* Title */}
       {hero.title && (
         <h1
-          className={clsx(
-            'max-w-[60rem] whitespace-pre-line text-2xl',
-            'md:text-[4.8vw] md:font-[400]'
-          )}
+          className={clsx('max-w-[64rem] ', 'scroll-m-20 text-5xl font-bold  ')}
           style={{ color: colorTheme?.text || 'black' }}
         >
           {hero.title}
