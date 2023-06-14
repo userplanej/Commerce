@@ -9,10 +9,11 @@ export const PRODUCT_WITH_VARIANT = groq`
     "handle": store.slug.current,
     "title": store.title,
     "variantGid": coalesce(^.variant->store.gid, store.variants[0]->store.gid),
-    "price": store.price,
+    "price": coalesce(store.priceRange.minVariantPrice, store.priceRange.maxVariantPrice),
     "image": store.previewImageUrl,
     "compareAtPrice": store.compareAtPrice,
     "availableForSale": store.availableForSale,
-    "vendor" : store.vendor
-  }
+    "vendor" : store.vendor,
+    "options" : store.options[]
+  },
 `;

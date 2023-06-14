@@ -35,7 +35,9 @@ export default function Search() {
         className="w-full px-4 py-2 text-black dark:bg-black dark:text-gray-100"
       />
       <div className="absolute right-0 top-0 mr-3 flex h-full items-center">
-        <SearchIcon className="h-5" />
+        <button>
+          <SearchIcon className="h-5" />
+        </button>
       </div>
     </form>
   );

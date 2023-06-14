@@ -1,6 +1,5 @@
 import pluralize from 'pluralize-esm';
-
-import type { ProductOption } from 'lib/shopify/types';
+import { SanityCustomProductOption } from './types';
 
 export const createUrl = (pathname: string, params: URLSearchParams) => {
   const paramsString = params.toString();
@@ -12,15 +11,21 @@ export const createUrl = (pathname: string, params: URLSearchParams) => {
 /**
  * Get the product options as a string, e.g. "Color / Size / Title"
  */
-export const getProductOptionString = (options?: ProductOption[]) => {
-  return options?.map(({ name, values }) => pluralize(name, values.length, true)).join(' / ');
+export const getProductOptionString = (options?: SanityCustomProductOption[]) => {
+  return options
+    ?.map(({ name, values }: { name: string; values: any[] }) =>
+      pluralize(name, values.length, true)
+    )
+    .join(' / ');
 };
-
+// export const getProductOptionString = (options?: SanityCustomProductOption[]) => {
+//   return "3 Colors";
+// };
 /**
  * Check if a product has multiple options, e.g. Color / Size / Title
  */
 
-export const hasMultipleProductOptions = (options?: ProductOption[]) => {
+export const hasMultipleProductOptions = (options?: SanityCustomProductOption[]) => {
   const firstOption = options?.[0];
   if (!firstOption) {
     return false;

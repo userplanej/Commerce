@@ -49,21 +49,30 @@ interface SanityCustomProductOptionBase {
   _key: string;
   title: string;
 }
+// export interface SanityCustomProductOptionColor extends SanityCustomProductOptionBase {
+//   _type: 'customProductOption.color';
+//   colors: {
+//     hex: string;
+//     title: string;
+//   }[];
+// }
+
+// export interface SanityCustomProductOptionSize extends SanityCustomProductOptionBase {
+//   _type: 'customProductOption.size';
+//   sizes: {
+//     height: number;
+//     title: string;
+//     width: number;
+//   }[];
+// }
 export interface SanityCustomProductOptionColor extends SanityCustomProductOptionBase {
-  _type: 'customProductOption.color';
-  colors: {
-    hex: string;
-    title: string;
-  }[];
+  name: string;
+  values: string[];
 }
 
 export interface SanityCustomProductOptionSize extends SanityCustomProductOptionBase {
-  _type: 'customProductOption.size';
-  sizes: {
-    height: number;
-    title: string;
-    width: number;
-  }[];
+  name: string;
+  values: string[];
 }
 
 export type SanityHero = SanityHeroCollection | SanityHeroHome | SanityHeroPage;
@@ -286,6 +295,7 @@ export type SanityProductWithVariant = {
   image: string;
   title: string;
   handle: string;
+  options?: SanityCustomProductOption[];
 };
 
 export type SanityProductPage = {

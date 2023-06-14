@@ -138,3 +138,4 @@ export const RefGridImage = forwardRef(
     );
   }
 );
+RefGridImage.displayName = 'RefGridImage';

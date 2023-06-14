@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Badge from '../elements/badge';
 
 import { SanityProductWithVariant } from 'lib/sanity/types';
+import { getProductOptionString, hasMultipleProductOptions } from 'lib/sanity/utils';
 import { Skeleton } from '../skeleton';
 
 /**
@@ -23,11 +24,14 @@ export default function ProductPill({ onClick, storefrontProduct, variantGid }: 
   if (firstVariant == null) {
     return null;
   }
-
+  console.log(JSON.stringify(firstVariant));
   // const multipleProductOptions = hasMultipleProductOptions(firstVariant.options);
   // const productOptions = getProductOptionString(firstVariant.options);
   const { available, compareAtPrice, image, price } = firstVariant;
-
+  console.log('### options ### ' + JSON.stringify(storefrontProduct.options));
+  const productOptions = getProductOptionString(storefrontProduct.options);
+  console.log('### productOptions String  ### ' + productOptions);
+  const multipleProductOptions = hasMultipleProductOptions(storefrontProduct.options);
   return (
     <Link onClick={onClick} href={`/product/${firstVariant.handle}`}>
       <div
@@ -61,7 +65,7 @@ export default function ProductPill({ onClick, storefrontProduct, variantGid }: 
           </div>
         </div>
 
-        <div className="overflow-hidden">
+        <div className="">
           <div className="mr-3 space-y-1">
             {/* Title */}
             <div className="truncate font-bold group-hover:underline">{firstVariant.title}</div>
@@ -70,6 +74,9 @@ export default function ProductPill({ onClick, storefrontProduct, variantGid }: 
               <div className="text-darkGray truncate">{firstVariant.vendor}</div>
             )}
             {/* Product options */}
+            {multipleProductOptions && (
+              <div className="text-darkGray truncate">{productOptions}</div>
+            )}
           </div>
           {/* Price */}
           <div className="mt-3 flex font-bold ">
@@ -78,7 +85,7 @@ export default function ProductPill({ onClick, storefrontProduct, variantGid }: 
                 <p className="decoration-red mr-2.5 line-through">{compareAtPrice}</p>
               </span>
             )}
-            {price}
+            {price} 원
           </div>
         </div>
       </div>

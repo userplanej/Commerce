@@ -1,4 +1,5 @@
 import { SanityModuleProduct } from 'lib/sanity/types';
+import ProductCard from '../product/card';
 import ProductPill from '../product/pill';
 
 type Props = {
@@ -20,15 +21,15 @@ export default function ProductModule({ imageAspectClassName, layout = 'card', m
     return <ProductPill storefrontProduct={storefrontProduct} variantGid={productVariantGid} />;
   }
 
-  // if (layout === 'card') {
-  //   return (
-  //     <ProductCard
-  //       imageAspectClassName={imageAspectClassName}
-  //       storefrontProduct={storefrontProduct}
-  //       variantGid={productVariantGid}
-  //     />
-  //   );
-  // }
+  if (layout === 'card') {
+    return (
+      <ProductCard
+        imageAspectClassName={imageAspectClassName}
+        storefrontProduct={storefrontProduct}
+        variantGid={productVariantGid}
+      />
+    );
+  }
 
   return null;
 }

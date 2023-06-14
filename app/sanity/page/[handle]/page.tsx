@@ -45,6 +45,7 @@ export default async function SanityPagePage({ params }: { params: { handle: str
       next: { revalidate: 60 }
     }
   });
+
   //console.log('SANITY_PAGE_QUERY : ' + SANITY_PAGE_QUERY);
 
   return (
