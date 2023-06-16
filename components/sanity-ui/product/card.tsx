@@ -45,6 +45,7 @@ export default function ProductCard({
           'bg-lightGray relative flex items-center justify-center overflow-hidden rounded object-cover transition-[border-radius] duration-500 ease-out',
           'hover:rounded-xl'
         ])}
+        data-swiper-parallax="300"
       >
         <Link
           className="absolute left-0 top-0 h-full w-full"
@@ -73,7 +74,7 @@ export default function ProductCard({
         {/* Quick add to cart */}
       </div>
 
-      <div className="text-md mt-3">
+      <div className="text-md mt-3" data-swiper-parallax="300">
         <div className="space-y-1">
           {/* Title */}
           <Link

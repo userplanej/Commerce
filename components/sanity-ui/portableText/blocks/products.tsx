@@ -2,7 +2,7 @@ import type { PortableTextBlock } from '@portabletext/types';
 import clsx from 'clsx';
 import ProductModule from 'components/sanity-ui/modules/product';
 import { SanityModuleProducts } from 'lib/sanity/types';
-import { Autoplay } from 'swiper';
+import { Autoplay, Parallax } from 'swiper';
 import 'swiper/css/autoplay';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
@@ -22,11 +22,12 @@ export default function ProductsBlock({ value }: Props) {
     <div
       className={clsx(
         'first:mt-0 last:mb-0', //
-        'my-8  gap-3'
+        'my-8  gap-3',
+        'w-[600px]'
       )}
     >
       <Swiper
-        modules={[Autoplay]}
+        modules={[Autoplay, Parallax]}
         speed={1000}
         parallax={true}
         autoplay={{ delay: 6500, disableOnInteraction: false }}
