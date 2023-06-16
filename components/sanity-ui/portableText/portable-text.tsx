@@ -12,8 +12,9 @@ import AccordionBlock from './blocks/accordion';
 import Block from './blocks/block';
 import CalloutBlock from './blocks/callout';
 import ImagesBlock from './blocks/images';
+import ParagraphsBlock from './blocks/paragraphs'; // 20230616 added
 import ProductsBlock from './blocks/products';
-import YoutubeBlock from './blocks/youtube';
+import YoutubeBlock from './blocks/youtube'; // 20230614 added
 
 const SHARED_LIST_CLASSES = clsx(
   'first:mt-0 last:mb-0', //
@@ -43,7 +44,8 @@ export default function PortableText({ blocks, centered, className }: Props) {
       blockCallout: (props: any) => <CalloutBlock centered={centered} {...props} />,
       blockImages: (props: any) => <ImagesBlock centered={centered} {...props} />,
       blockProducts: ProductsBlock,
-      blockYoutube: (props: any) => <YoutubeBlock centered={centered} {...props} />
+      blockYoutube: (props: any) => <YoutubeBlock centered={centered} {...props} />,
+      blockParagraphs: (props: any) => <ParagraphsBlock centered={centered} {...props} />
     }
   };
 

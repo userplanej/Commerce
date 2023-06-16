@@ -22,8 +22,7 @@ export default function ProductsBlock({ value }: Props) {
     <div
       className={clsx(
         'first:mt-0 last:mb-0', //
-        'my-8  gap-3',
-        'w-[600px]'
+        'my-8  gap-3'
       )}
     >
       <Swiper
