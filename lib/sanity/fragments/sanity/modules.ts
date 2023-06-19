@@ -1,7 +1,7 @@
 import groq from 'groq';
 import { MODULE_ACCORDION } from './modules/accordion';
 import { MODULE_CALLOUT } from './modules/callout';
-import { MODULE_CALL_TO_ACTION } from './modules/callToAction';
+import { MODULE_CALL_TO_ACTION } from './modules/calltoaction';
 import { MODULE_COLLECTION } from './modules/collection';
 import { MODULE_IMAGE } from './modules/image';
 import { MODULE_INSTAGRAM } from './modules/instagram';
