@@ -1,6 +1,7 @@
 import groq from 'groq';
 import { MODULE_ACCORDION } from '../modules/accordion';
 import { MODULE_CALLOUT } from '../modules/callout';
+import { MODULE_CALL_TO_ACTION } from '../modules/calltoaction';
 import { MODULE_GRID } from '../modules/grid';
 import { MODULE_IMAGES } from '../modules/images';
 import { MODULE_INSTAGRAM } from '../modules/instagram';
@@ -15,6 +16,9 @@ export const PORTABLE_TEXT = groq`
   },
   (_type == 'blockCallout') => {
     ${MODULE_CALLOUT}
+  },
+  (_type == 'blockCallToAction') => {
+    ${MODULE_CALL_TO_ACTION}
   },
   (_type == 'blockGrid') => {
     ${MODULE_GRID},

@@ -11,6 +11,7 @@ import LinkInternalAnnotation from './annotations/linkinternal';
 import AccordionBlock from './blocks/accordion';
 import Block from './blocks/block';
 import CalloutBlock from './blocks/callout';
+import CallToActionBlock from './blocks/calltoaction';
 import ImagesBlock from './blocks/images';
 import ParagraphsBlock from './blocks/paragraphs'; // 20230616 added
 import ProductsBlock from './blocks/products';
@@ -42,6 +43,7 @@ export default function PortableText({ blocks, centered, className }: Props) {
     types: {
       blockAccordion: AccordionBlock,
       blockCallout: (props: any) => <CalloutBlock centered={centered} {...props} />,
+      blockCallToAction: (props: any) => <CallToActionBlock centered={centered} {...props} />,
       blockImages: (props: any) => <ImagesBlock centered={centered} {...props} />,
       blockProducts: ProductsBlock,
       blockYoutube: (props: any) => <YoutubeBlock centered={centered} {...props} />,

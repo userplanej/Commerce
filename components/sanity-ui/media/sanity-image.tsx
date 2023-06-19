@@ -81,6 +81,7 @@ export default function SanityImage(props) {
     ...rest
   } = props;
 
+  console.log('###SanityImage called src : ', src);
   const { ref, inView } = useInView({
     triggerOnce: true,
     // rootMargin: '0px 0px',
@@ -88,7 +89,7 @@ export default function SanityImage(props) {
     rootMargin: '0px',
     threshold: 0.5
   });
-
+  console.log('###SanityImage pre-dataset : ');
   if (!dataset) {
     throw new Error('SanityImage is missing required "dataset" property.');
   }
@@ -96,7 +97,7 @@ export default function SanityImage(props) {
     throw new Error('SanityImage is missing required "projectId" property.');
   }
   if (!src) {
-    return null;
+    throw new Error('SanityImage is missing required "src" property.');
   }
 
   // Strip out blacklisted props
@@ -104,13 +105,13 @@ export default function SanityImage(props) {
   delete rest?.['ref'];
   delete rest?.['srcSet'];
   delete rest?.['style'];
-
+  console.log('###SanityImage pre-urlBuilder : ');
   const urlBuilder = imageUrlBuilder({ projectId, dataset }).image({
     _ref: src,
     crop,
     hotspot
   });
-
+  console.log('###SanityImage urlBuilder : ' + urlBuilder);
   // Generate srcset + sizes
   const srcSetSizes = generateSizes(BREAKPOINTS, sizes);
   const srcSet = generateSrcSet(urlBuilder, BREAKPOINTS, { quality });
@@ -142,6 +143,7 @@ export default function SanityImage(props) {
   // @ts-expect-error
   urlDefault = urlDefault.url();
 
+  console.log('###SanityImage : ' + urlDefault);
   return (
     <div ref={ref}>
       {inView ? (

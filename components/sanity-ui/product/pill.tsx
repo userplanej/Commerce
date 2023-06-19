@@ -28,9 +28,9 @@ export default function ProductPill({ onClick, storefrontProduct, variantGid }: 
   // const multipleProductOptions = hasMultipleProductOptions(firstVariant.options);
   // const productOptions = getProductOptionString(firstVariant.options);
   const { available, compareAtPrice, image, price } = firstVariant;
-  console.log('### options ### ' + JSON.stringify(storefrontProduct.options));
+  //console.log('### options ### ' + JSON.stringify(storefrontProduct.options));
   const productOptions = getProductOptionString(storefrontProduct.options);
-  console.log('### productOptions String  ### ' + productOptions);
+  //console.log('### productOptions String  ### ' + productOptions);
   const multipleProductOptions = hasMultipleProductOptions(storefrontProduct.options);
   return (
     <Link onClick={onClick} href={`/product/${firstVariant.handle}`}>

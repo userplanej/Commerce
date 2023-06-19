@@ -16,7 +16,7 @@ type Props = {
 };
 
 export default function ProductHotspot({ storefrontProduct, x, y }: Props) {
-  console.log('==>>ProductHotspot storefrontProduct : ' + JSON.stringify(storefrontProduct));
+  //console.log('==>>ProductHotspot storefrontProduct : ' + JSON.stringify(storefrontProduct));
   if (!storefrontProduct) {
     return null;
   }
