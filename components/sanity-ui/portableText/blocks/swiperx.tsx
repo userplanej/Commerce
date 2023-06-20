@@ -1,7 +1,7 @@
 import type { PortableTextBlock } from '@portabletext/types';
 import clsx from 'clsx';
-import ProductModule from 'components/sanity-ui/modules/product';
-import { SanityModuleProducts } from 'lib/sanity/types';
+import ParaagraphMediaModule from 'components/sanity-ui/modules/paragraphmedia';
+import { SanityModuleSwiperX } from 'lib/sanity/types';
 
 import { Autoplay, Parallax } from 'swiper';
 import 'swiper/css/autoplay';
@@ -9,13 +9,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 
 type Props = {
-  value: PortableTextBlock & SanityModuleProducts;
+  value: PortableTextBlock & SanityModuleSwiperX;
 };
 
-export default function ProductsBlock({ value }: Props) {
+export default function SwiperXBlock({ value }: Props) {
   if (!Array.isArray(value?.modules)) {
     return null;
   }
+
+  console.log('#####SwiperXBlock ' + JSON.stringify(value?.modules));
 
   return (
     <div
@@ -34,11 +36,7 @@ export default function ProductsBlock({ value }: Props) {
       >
         {value?.modules?.map((module) => (
           <SwiperSlide key={module._key}>
-            <ProductModule
-              imageAspectClassName="aspect-[320/220]"
-              layout={value.layout}
-              module={module}
-            />
+            <ParaagraphMediaModule module={module.paragraphWithMedia} />
           </SwiperSlide>
         ))}
       </Swiper>

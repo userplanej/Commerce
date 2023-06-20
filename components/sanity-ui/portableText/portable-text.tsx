@@ -13,8 +13,9 @@ import Block from './blocks/block';
 import CalloutBlock from './blocks/callout';
 import CallToActionBlock from './blocks/calltoaction';
 import ImagesBlock from './blocks/images';
-import ParagraphsBlock from './blocks/paragraphs'; // 20230616 added
+
 import ProductsBlock from './blocks/products';
+import SwiperXBlock from './blocks/swiperx';
 import YoutubeBlock from './blocks/youtube'; // 20230614 added
 
 const SHARED_LIST_CLASSES = clsx(
@@ -44,10 +45,11 @@ export default function PortableText({ blocks, centered, className }: Props) {
       blockAccordion: AccordionBlock,
       blockCallout: (props: any) => <CalloutBlock centered={centered} {...props} />,
       blockCallToAction: (props: any) => <CallToActionBlock centered={centered} {...props} />,
+
       blockImages: (props: any) => <ImagesBlock centered={centered} {...props} />,
       blockProducts: ProductsBlock,
-      blockYoutube: (props: any) => <YoutubeBlock centered={centered} {...props} />,
-      blockParagraphs: (props: any) => <ParagraphsBlock centered={centered} {...props} />
+      blockSwiperX: SwiperXBlock,
+      blockYoutube: (props: any) => <YoutubeBlock centered={centered} {...props} />
     }
   };
 

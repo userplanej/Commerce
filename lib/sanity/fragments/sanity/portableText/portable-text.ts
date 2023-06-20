@@ -6,6 +6,7 @@ import { MODULE_GRID } from '../modules/grid';
 import { MODULE_IMAGES } from '../modules/images';
 import { MODULE_INSTAGRAM } from '../modules/instagram';
 import { MODULE_PRODUCTS } from '../modules/products';
+import { MODULE_SWIPERX } from '../modules/swiperx';
 import { MODULE_YOUTUBE } from '../modules/youtube';
 import { MARK_DEFS } from './markDefs';
 
@@ -20,6 +21,7 @@ export const PORTABLE_TEXT = groq`
   (_type == 'blockCallToAction') => {
     ${MODULE_CALL_TO_ACTION}
   },
+ 
   (_type == 'blockGrid') => {
     ${MODULE_GRID},
   },
@@ -34,6 +36,9 @@ export const PORTABLE_TEXT = groq`
   },
   (_type == 'blockProducts') => {
     ${MODULE_PRODUCTS}
+  },
+  (_type == 'blockSwiperX') => {
+    ${MODULE_SWIPERX}
   },
   markDefs[] {
     ${MARK_DEFS}

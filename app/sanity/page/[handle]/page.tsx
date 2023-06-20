@@ -46,7 +46,7 @@ export default async function SanityPagePage({ params }: { params: { handle: str
     }
   });
 
-  //console.log('SANITY_PAGE_QUERY : ' + SANITY_PAGE_QUERY);
+  console.log('SANITY_PAGE_QUERY : ' + SANITY_PAGE_QUERY);
 
   return (
     <section>

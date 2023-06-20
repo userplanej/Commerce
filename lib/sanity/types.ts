@@ -139,7 +139,8 @@ export type SanityModule =
   | SanityModuleImage
   | SanityModuleInstagram
   | SanityModuleYoutube
-  | SanityModuleProduct;
+  | SanityModuleProduct
+  | SanityModuleSwiperSliderX;
 
 export type SanityModuleAccordion = {
   _key?: string;
@@ -313,4 +314,27 @@ export type SanitySeo = {
   description?: string;
   image?: SanityAssetImage;
   title: string;
+};
+
+// SanityModuleSwiperX
+
+export type SanityModuleSwiperX = {
+  _key?: string;
+  _type: 'module.swiperx';
+  modules: SanityModuleSwiperSliderX[];
+};
+
+export type SanityModuleSwiperSliderX = {
+  _key?: string;
+  _type: 'module.paragraphMedia';
+  paragraphWithMedia: SanityParagraphWithMedia;
+};
+
+export type SanityParagraphWithMedia = {
+  _key?: string;
+  _type: 'paragraphWithMedia';
+  header: string;
+  paragraph?: string;
+  media?: SanityAssetImage | SanityProductWithVariant;
+  link: SanityLink;
 };
