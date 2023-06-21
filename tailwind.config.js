@@ -52,7 +52,9 @@ module.exports = {
       },
 
       backgroundImage: {
-        lvmh: 'url("https://eu.louisvuitton.com/content/dam/lv/online/high-end/women/handbags/W_Fa_Capucines_Icon_Zendaya_V2.html/jcr:content/assets/CATEGORY_CAMPAIGN_VISUAL_LVCOM_2048x1152_DI3.jpg?imwidth=1240")'
+        lvmh: 'url("https://eu.louisvuitton.com/content/dam/lv/online/high-end/women/handbags/W_Fa_Capucines_Icon_Zendaya_V2.html/jcr:content/assets/CATEGORY_CAMPAIGN_VISUAL_LVCOM_2048x1152_DI3.jpg?imwidth=1240")',
+        lvmhmo:
+          'url(https://eu.louisvuitton.com/content/dam/lv/online/high-end/women/handbags/W_Fa_Capucines_Icon_Zendaya_V2.html/jcr:content/assets/CATEGORY_CAMPAIGN_VISUAL_LVCOM_1600x2000_DI.jpg?imwidth=1240)'
       }
     }
   },

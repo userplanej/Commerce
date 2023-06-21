@@ -63,7 +63,7 @@ export default function PortableText({ blocks, centered, className }: Props) {
 
   return (
     <>
-      <div className="flex min-h-screen items-center justify-center bg-lvmh bg-cover bg-fixed bg-center bg-no-repeat">
+      <div className="flex min-h-screen items-center justify-center bg-lvmhmo bg-cover bg-fixed bg-center bg-no-repeat lg:bg-lvmh">
         {inView ? (
           <h1 className="h-[72px] w-[380px] translate-y-[-5px] transform-gpu animate-pageBgFadeIn text-[1.75rem] font-[400] leading-[2.25rem] tracking-[.05rem]  text-white duration-300">
             An intuitive blend of elegance, versatility, and savoir-faire
