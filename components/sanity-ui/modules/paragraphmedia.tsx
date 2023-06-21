@@ -10,6 +10,7 @@ import { dataset, projectId } from 'lib/sanity/sanity-config';
 import { useColorTheme } from 'lib/theme';
 
 import Link from 'next/link';
+// import SanityImage from '../media/sanity-image';
 import SanityImage from '../media/sanity-image';
 
 type Props = {
@@ -22,25 +23,10 @@ export default function ParaagraphMediaModule({ module }: Props) {
   const colorTheme = useColorTheme();
 
   return (
-    <div
-      className="flex flex-col gap-5 md:flex-row md:gap-[5vw]"
-      style={{ color: colorTheme?.text }}
-    >
-      {/* Text */}
-      <div
-        className={clsx(
-          'relative aspect-[864/485] grow' //
-        )}
-      >
-        {module.media && <ModuleContent media={module.media} />}
-      </div>
-      <div
-        className={clsx(
-          'mr-auto flex w-full shrink-0 flex-col items-start', //
-          'md:max-w-[20rem]'
-        )}
-      >
-        {/* Title */}
+    <div className="grid grid-cols-2 gap-4">
+      {/* Paragraph */}
+      <div className="min-h-[80vh]  w-[70%]">
+        {/* Header */}
         <div
           className={clsx(
             'text-xl font-bold', //
@@ -50,7 +36,7 @@ export default function ParaagraphMediaModule({ module }: Props) {
           {module.header}
         </div>
 
-        {/* Paragraph */}
+        {/* text */}
         {module.paragraph && <div className="leading-paragraph mt-4">{module.paragraph}</div>}
 
         {/* Link */}
@@ -64,6 +50,11 @@ export default function ParaagraphMediaModule({ module }: Props) {
             </Link>
           </div>
         )}
+      </div>
+
+      {/* Media */}
+      <div className="relative aspect-[530/597] w-[70%] ">
+        {module.media && <ModuleContent media={module.media} />}
       </div>
     </div>
   );
