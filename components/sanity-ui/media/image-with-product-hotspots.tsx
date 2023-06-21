@@ -20,9 +20,9 @@ export default function ImageWithProductHotspots({ content }: Props) {
         {content.productHotspots?.map((hotspot) => {
           const storefrontProduct = hotspot?.product as unknown as Product;
 
-          console.log(
-            'ImageWithProductHotspots storefrontProduct : ' + JSON.stringify(storefrontProduct)
-          );
+          // console.log(
+          //   'ImageWithProductHotspots storefrontProduct : ' + JSON.stringify(storefrontProduct)
+          // );
 
           return (
             <ProductHotspot

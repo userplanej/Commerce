@@ -13,11 +13,10 @@ import CalloutBlock from './blocks/callout';
 import CallToActionBlock from './blocks/calltoaction';
 import ImagesBlock from './blocks/images';
 
+import { Suspense, useMemo } from 'react';
 import ProductsBlock from './blocks/products';
 import SwiperXBlock from './blocks/swiperx';
 import YoutubeBlock from './blocks/youtube'; // 20230614 added
-
-import { useInView } from 'react-intersection-observer';
 
 const SHARED_LIST_CLASSES = clsx(
   'first:mt-0 last:mb-0', //
@@ -31,13 +30,6 @@ type Props = {
 };
 
 export default function PortableText({ blocks, centered, className }: Props) {
-  const { ref, inView } = useInView({
-    triggerOnce: false,
-    rootMargin: '0px'
-    // delay: 000,
-    // trackVisibility: true
-  });
-
   const components: PortableTextComponents = {
     list: {
       bullet: ({ children }) => <ul className={SHARED_LIST_CLASSES}>{children}</ul>,
@@ -61,26 +53,17 @@ export default function PortableText({ blocks, centered, className }: Props) {
     }
   };
 
-  return (
-    <>
-      <div
-        id="pageBgSection"
-        className="flex min-h-screen items-center justify-center bg-lvmh bg-cover bg-fixed bg-center bg-no-repeat"
-      >
-        {inView ? (
-          <h1 className=" h-[72px] w-[380px] translate-y-[-5px] transform-gpu animate-pageBgFadeIn text-[1.75rem] font-[400] leading-[2.25rem] tracking-[.05rem] text-white  duration-300">
-            An intuitive blend of elegance, versatility, and savoir-faire
-          </h1>
-        ) : (
-          <h1 className=" h-[72px] w-[380px] text-[1.75rem]  font-[400] leading-[2.25rem] tracking-[.05rem] text-orange-400 text-opacity-5 ">
-            An intuitive blend of elegance, versatility, and savoir-faire
-          </h1>
-        )}
-      </div>
+  const portableText = useMemo(() => {
+    return (
+      <Suspense fallback={<p>Loading...</p>}>
+        <div className={clsx('portableText', className)}>
+          <PortableTextReact value={blocks} components={components} />
+        </div>
+      </Suspense>
+    );
 
-      <div ref={ref} className={clsx('portableText', className)}>
-        <PortableTextReact value={blocks} components={components} />
-      </div>
-    </>
-  );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [blocks]);
+
+  return portableText;
 }

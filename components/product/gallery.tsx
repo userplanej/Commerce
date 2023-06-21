@@ -67,7 +67,7 @@ export function Gallery({
 
   function updateRef(index: number) {
     const displayNewImage = () => {
-      console.log(GalleryRef.current);
+      //console.log(GalleryRef.current);
       // futureGalleryRefInner = getFutureGalleryRefInner()
       // GalleryRef.current!.innerHTML = futureGalleryRefInner
       GalleryRef.current!.innerHTML = '<p>abc</p>';

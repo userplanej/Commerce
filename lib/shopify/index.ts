@@ -316,7 +316,7 @@ export async function getMenu(handle: string): Promise<Menu[]> {
 }
 
 export async function getPage(handle: string): Promise<Page> {
-  console.log(getPageQuery);
+  //console.log(getPageQuery);
   const res = await shopifyFetch<ShopifyPageOperation>({
     query: getPageQuery,
     variables: { handle }
