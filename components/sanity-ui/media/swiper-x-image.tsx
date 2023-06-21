@@ -1,7 +1,6 @@
 import imageUrlBuilder from '@sanity/image-url';
-import { useInView } from 'react-intersection-observer';
-
 import Image from 'next/image';
+import { useInView } from 'react-intersection-observer';
 
 const BREAKPOINTS = [640, 768, 1024, 1280, 1536]; // px
 
@@ -81,7 +80,6 @@ export default function SwiperXImage(props) {
     ...rest
   } = props;
 
-  console.log('###SanityImage called src : ', src);
   const { ref, inView } = useInView({
     triggerOnce: true,
     // rootMargin: '0px 0px',
@@ -105,13 +103,13 @@ export default function SwiperXImage(props) {
   delete rest?.['ref'];
   delete rest?.['srcSet'];
   delete rest?.['style'];
-  console.log('###SanityImage pre-urlBuilder : ');
+
   const urlBuilder = imageUrlBuilder({ projectId, dataset }).image({
     _ref: src,
     crop,
     hotspot
   });
-  console.log('###SanityImage urlBuilder : ' + urlBuilder);
+
   // Generate srcset + sizes
   const srcSetSizes = generateSizes(BREAKPOINTS, sizes);
   const srcSet = generateSrcSet(urlBuilder, BREAKPOINTS, { quality });
@@ -143,14 +141,13 @@ export default function SwiperXImage(props) {
   // @ts-expect-error
   urlDefault = urlDefault.url();
 
-  console.log('###SanityImage : ' + urlDefault);
   return (
     <div ref={ref}>
       {inView ? (
         <Image
           {...rest}
           alt={alt}
-          //className="animate-fadeIn"
+          className="rounded-3xl"
           //src={blurDataURL}
           sizes={srcSetSizes}
           src={urlDefault}

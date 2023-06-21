@@ -32,14 +32,14 @@ export default function SwiperXBlock({ centered = true, value }: Props) {
       <div className={clsx(centered && 'mx-auto w-full max-w-[1400px]')}>
         <Swiper
           modules={[Autoplay, Parallax]}
-          speed={50}
+          speed={500}
           parallax={true}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
+          autoplay={{ delay: 6500, disableOnInteraction: false }}
           loop={true}
           watchSlidesProgress={true}
         >
-          {value?.modules?.map((module) => (
-            <SwiperSlide key={module._key}>
+          {value?.modules?.map((module, index) => (
+            <SwiperSlide key={index}>
               <ParaagraphMediaModule module={module.paragraphWithMedia} />
             </SwiperSlide>
           ))}

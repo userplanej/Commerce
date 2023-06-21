@@ -11,6 +11,7 @@ import { dataset, projectId } from 'lib/sanity/sanity-config';
 import { useColorTheme } from 'lib/theme';
 
 import Link from 'next/link';
+import { useInView } from 'react-intersection-observer';
 import SanityImage from '../media/sanity-image';
 
 type Props = {
@@ -20,6 +21,14 @@ type Props = {
 /* TODO clear unknown type */
 export default function CallToActionModule({ module }: Props) {
   const colorTheme = useColorTheme();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    // rootMargin: '0px 0px',
+    root: null,
+    rootMargin: '0px 700px',
+    delay: 1000,
+    trackVisibility: true
+  });
 
   return (
     <div
@@ -34,6 +43,7 @@ export default function CallToActionModule({ module }: Props) {
       >
         {module.content && <ModuleContent content={module.content} />}
       </div>
+
       <div
         className={clsx(
           'mr-auto flex w-full shrink-0 flex-col items-start', //

@@ -32,8 +32,8 @@ export default function ProductsBlock({ value }: Props) {
         loop={true}
         watchSlidesProgress={true}
       >
-        {value?.modules?.map((module) => (
-          <SwiperSlide key={module._key}>
+        {value?.modules?.map((module, index) => (
+          <SwiperSlide key={index}>
             <ProductModule
               imageAspectClassName="aspect-[320/220]"
               layout={value.layout}
