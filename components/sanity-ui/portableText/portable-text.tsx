@@ -65,14 +65,14 @@ export default function PortableText({ blocks, centered, className }: Props) {
     <>
       <div
         id="pageBgSection"
-        className="flex min-h-screen items-center justify-center bg-lvmhmo bg-cover bg-fixed bg-center bg-no-repeat lg:bg-lvmh"
+        className="flex min-h-screen items-center justify-center bg-lvmh bg-cover bg-fixed bg-center bg-no-repeat"
       >
         {inView ? (
-          <h1 className="text-xs text-white lg:h-[72px] lg:w-[380px] lg:translate-y-[-5px] lg:transform-gpu lg:animate-pageBgFadeIn lg:text-[1.75rem] lg:font-[400] lg:leading-[2.25rem] lg:tracking-[.05rem]  lg:duration-300">
+          <h1 className=" h-[72px] w-[380px] translate-y-[-5px] transform-gpu animate-pageBgFadeIn text-[1.75rem] font-[400] leading-[2.25rem] tracking-[.05rem] text-white  duration-300">
             An intuitive blend of elegance, versatility, and savoir-faire
           </h1>
         ) : (
-          <h1 className="text-xs text-orange-400 lg:h-[72px] lg:w-[380px]  lg:text-[1.75rem] lg:font-[400] lg:leading-[2.25rem] lg:tracking-[.05rem]  lg:text-orange-400 lg:text-opacity-5 ">
+          <h1 className=" h-[72px] w-[380px] text-[1.75rem]  font-[400] leading-[2.25rem] tracking-[.05rem] text-orange-400 text-opacity-5 ">
             An intuitive blend of elegance, versatility, and savoir-faire
           </h1>
         )}
