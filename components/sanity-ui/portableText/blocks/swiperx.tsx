@@ -32,7 +32,7 @@ export default function SwiperXBlock({ centered = true, value }: Props) {
       <div className={clsx(centered && 'mx-auto w-full max-w-[1400px]')}>
         <Swiper
           modules={[Autoplay, Parallax]}
-          speed={500}
+          speed={1500}
           parallax={true}
           autoplay={{ delay: 6500, disableOnInteraction: false }}
           loop={true}
