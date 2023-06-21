@@ -28,7 +28,7 @@ export default function ParaagraphMediaModule({ module }: Props) {
   // console.log('#####ParaagraphMediaModule ' + JSON.stringify(module));
 
   return (
-    <div className="grid grid-cols-2 items-center  justify-center gap-4 align-middle md:px-[96px]">
+    <div className="grid grid-cols-1 items-center justify-center  gap-4 align-middle md:px-[96px] lg:grid-cols-2">
       <div ref={ref} className="flex flex-col items-center justify-center align-middle ">
         <div className="relative flex w-[95%] items-start ">
           <div className=" flex flex-col">

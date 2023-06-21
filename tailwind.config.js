@@ -46,8 +46,13 @@ module.exports = {
       animation: {
         fadeIn: 'fadeIn 1.2s ease-in-out',
         pdfadeIn: 'fadeIn .2s ease-in-out',
+        pageBgFadeIn: 'fadeIn .5s linear',
         carousel: 'marquee 10s linear infinite',
         blink: 'blink 1.4s both infinite'
+      },
+
+      backgroundImage: {
+        lvmh: 'url("https://eu.louisvuitton.com/content/dam/lv/online/high-end/women/handbags/W_Fa_Capucines_Icon_Zendaya_V2.html/jcr:content/assets/CATEGORY_CAMPAIGN_VISUAL_LVCOM_2048x1152_DI3.jpg?imwidth=1240")'
       }
     }
   },
