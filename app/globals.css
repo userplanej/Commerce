@@ -76,6 +76,18 @@
   padding: 0.2rem;
 }
 
+/* Default styles for the section element */
+#pageBgSection {
+  /* Your section styles */
+}
+
+/* Media query for mobile devices */
+@media only screen and (max-width: 600px) {
+  #pageBgSection {
+    display: none; /* Hide the section on mobile devices */
+  }
+}
+
 .hero-wrapper {
   transform: skewY(-11deg);
   clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
