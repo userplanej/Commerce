@@ -23,6 +23,14 @@ module.exports = {
       },
 
       keyframes: {
+        leapsIn: {
+          '0%': { transform: 'translateX(0%)', opacity: 0.3 },
+          '100% ': { transform: 'translate(20px, -50px)', opacity: 1.0 }
+        },
+        growOut: {
+          '0%': { transform: 'scale(100%)', opacity: 0.3 },
+          '100% ': { transform: 'scale(120%)', opacity: 1.0 }
+        },
         fadeIn: {
           from: { opacity: 0 },
           to: { opacity: 1.0 }
@@ -44,6 +52,8 @@ module.exports = {
       /* @keyframes duration | easing-function | delay |
           iteration-count | direction | fill-mode | play-state | name */
       animation: {
+        leapsIn: 'leapsIn 2.5s ease-in-out',
+        growOut: 'growOut 10s ease-in-out',
         fadeIn: 'fadeIn 1.2s ease-in-out',
         pdfadeIn: 'fadeIn .2s ease-in-out',
         pageBgFadeIn: 'fadeIn .5s linear',
