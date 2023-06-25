@@ -1,6 +1,9 @@
 'use client';
 
+import MuxPlayer from '@mux/mux-player-react';
+
 import { Button } from '@tremor/react';
+
 // import { Button } from '@tremor/react';
 import type { AnimationEvent } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -48,16 +51,12 @@ export function Intrigue({}: {}) {
                 </video>
               </div>
               <div id="Hero" className="flex h-screen w-full items-center justify-center sm:hidden">
-                <video
-                  id="video"
-                  controls={false}
+                <MuxPlayer
+                  style={{ width: '100%' }}
+                  playbackId="8K2PxHwN6yfft1LjUFN435wxlDU301px02P4C02cF7REdc"
+                  streamType="on-demand"
                   autoPlay={true}
-                  muted={true}
-                  loop={true}
-                  className="h-screen w-full animate-videoFadeIn"
-                >
-                  <source src="LVMH-MHero.webm" type="video/webm" />
-                </video>
+                />
               </div>
             </>
           ) : null}
@@ -83,7 +82,11 @@ export function Intrigue({}: {}) {
               augue torquatos cu.
             </p>
 
-            <Button size="xl" className="m-1 text-white sm:m-4">
+            <Button size="xl" className="m-1 hidden text-white sm:m-4 sm:block">
+              {' '}
+              Action Button{' '}
+            </Button>
+            <Button size="xs" variant="secondary" className="block text-xs sm:hidden">
               {' '}
               Action Button{' '}
             </Button>

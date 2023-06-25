@@ -124,7 +124,7 @@ export function TremorSection({}: {}) {
   };
 
   return (
-    <Container className="flex h-full w-full flex-col">
+    <Container className="hidden h-full w-full flex-col sm:flex">
       <div className=" mt-3 inline-block  h-[60px] w-full overflow-visible bg-white ">&nbsp;</div>
       <div className="ml-9 mt-12 flex flex-row">
         <div className=" dashboard-scrollbar  mt-3 h-[523px] w-[169px] overflow-auto">
