@@ -8,7 +8,7 @@ export function Intrigue({}: {}) {
   const { ref, inView } = useInView({
     triggerOnce: true,
     root: null,
-    rootMargin: '0px',
+    // rootMargin: '0px',
     threshold: 0.4
   });
 
@@ -26,7 +26,7 @@ export function Intrigue({}: {}) {
     <>
       <div
         id="sectionintregue"
-        className=" sticky top-0 flex h-screen  w-full items-center justify-center "
+        className=" sticky top-0 hidden h-screen w-full  items-center justify-center sm:flex "
       >
         <div ref={ref} className="h-screen w-full">
           {inView ? (
@@ -54,14 +54,26 @@ export function Intrigue({}: {}) {
                 </video>
               </div>
             </>
-          ) : null}
+          ) : (
+            <div id="Hero" className="flex h-screen w-full items-center justify-center">
+              <video
+                controls={false}
+                autoPlay={true}
+                muted={true}
+                loop={true}
+                className="hidden h-[73%] w-[73%] animate-videoFadeIn opacity-25 sm:block"
+              >
+                <source src="LVMH-Hero.mp4" type="video/webm" />
+              </video>
+            </div>
+          )}
         </div>
       </div>
       <div className=" relative flex  h-screen  w-full items-center justify-center">
         {inView ? (
           <div
             onAnimationEnd={(e: AnimationEvent<HTMLDivElement>) => handleTransitionEnd(e)}
-            className="relative w-[60%] animate-stickyFadeIn"
+            className="relative w-[60%] animate-longStickyFadeIn"
           >
             <h1 className="m-4 scroll-m-20 text-5xl font-extrabold tracking-tight text-white lg:text-5xl ">
               Sample Heading

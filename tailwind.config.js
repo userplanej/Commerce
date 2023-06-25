@@ -40,7 +40,7 @@ module.exports = {
           to: { opacity: 0.8 }
         },
         stickyFadeIn: {
-          from: { opacity: 0.5 },
+          from: { opacity: 0 },
           to: { opacity: 1.0 }
         },
         videoFadeIn: {
@@ -66,7 +66,8 @@ module.exports = {
         pdfadeIn: 'fadeIn .2s ease-in-out',
         pageBgFadeIn: 'fadeIn .5s linear',
         stickyFadeIn: 'stickyFadeIn .01s',
-        videoFadeIn: 'videoFadeIn 4s linear',
+        longStickyFadeIn: 'stickyFadeIn 5s',
+        videoFadeIn: 'videoFadeIn 6s linear',
         carousel: 'marquee 10s linear infinite',
         blink: 'blink 1.4s both infinite'
       },
