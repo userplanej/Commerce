@@ -4,6 +4,7 @@ import { FerrariInterior } from 'components/ferrari-interior';
 import { ThreeItemGrid } from 'components/grid/three-items';
 import { Intrigue } from 'components/intrigue';
 import Footer from 'components/layout/footer';
+import { TremorSection } from 'components/tremor-page';
 import { getTranslations } from './translations.server';
 
 export const runtime = 'edge';
@@ -48,6 +49,7 @@ export default async function HomePage() {
       />
       <FerrariInterior />
       <Intrigue />
+      <TremorSection />
       {/* @ts-expect-error Server Component */}
       <Footer />
     </>

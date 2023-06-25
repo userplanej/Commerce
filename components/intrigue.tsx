@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from '@tremor/react';
 // import { Button } from '@tremor/react';
 import type { AnimationEvent } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -81,7 +82,11 @@ export function Intrigue({}: {}) {
               ius in. Dico tota antiopam qui ne. Agam dolores id pro. Vis an quodsi elaboraret, ius
               augue torquatos cu.
             </p>
-            <button className="m-1 text-white sm:m-4"> Action Button </button>
+
+            <Button size="xl" className="m-1 text-white sm:m-4">
+              {' '}
+              Action Button{' '}
+            </Button>
           </div>
         ) : null}
       </div>

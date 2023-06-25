@@ -2,6 +2,7 @@
 
 import type { AnimationEvent } from 'react';
 
+import { Button } from '@tremor/react';
 import Image from 'next/image';
 
 //import { Button } from "@tremor/react";
@@ -63,7 +64,10 @@ export function FerrariInterior({}: {}) {
               ius in. Dico tota antiopam qui ne. Agam dolores id pro. Vis an quodsi elaboraret, ius
               augue torquatos cu.
             </p>
-            <button className="m-4 text-white"> Action Button </button>
+            <Button size="xl" className="m-4 text-white">
+              {' '}
+              Action Button{' '}
+            </Button>
           </div>
         ) : (
           <div className="relative w-[60%]">
@@ -76,7 +80,10 @@ export function FerrariInterior({}: {}) {
               ius in. Dico tota antiopam qui ne. Agam dolores id pro. Vis an quodsi elaboraret, ius
               augue torquatos cu.
             </p>
-            <button className="m-4 text-white"> Action Button </button>
+            <Button size="xl" className="m-4 text-white">
+              {' '}
+              Action Button{' '}
+            </Button>
           </div>
         )}
       </div>
