@@ -31,6 +31,14 @@ module.exports = {
           from: { opacity: 0 },
           to: { opacity: 0.8 }
         },
+        stickyFadeIn: {
+          from: { opacity: 0.5 },
+          to: { opacity: 1.0 }
+        },
+        videoFadeIn: {
+          from: { width: '80%', height: '80%', opacity: 0 },
+          to: { width: '100%', height: '100%', opacity: 1.0 }
+        },
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-100%)' }
@@ -47,6 +55,8 @@ module.exports = {
         fadeIn: 'fadeIn 1.2s ease-in-out',
         pdfadeIn: 'fadeIn .2s ease-in-out',
         pageBgFadeIn: 'fadeIn .5s linear',
+        stickyFadeIn: 'stickyFadeIn .01s',
+        videoFadeIn: 'videoFadeIn 4s linear',
         carousel: 'marquee 10s linear infinite',
         blink: 'blink 1.4s both infinite'
       },
