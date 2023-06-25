@@ -31,7 +31,7 @@ export function FerrariInterior({}: {}) {
 
   return (
     <>
-      <div id="sectionhead" className="sticky  left-0 top-0 h-screen w-full">
+      <div id="sectionhead" className="sticky left-0 top-0  hidden h-screen w-full sm:flex">
         <div className="grid h-full w-full grid-cols-7 grid-rows-2 gap-1">
           <div className=" col-span-7 row-span-2 overflow-hidden">
             <Image
@@ -47,7 +47,7 @@ export function FerrariInterior({}: {}) {
       <div
         ref={ref}
         id="sectioncaption"
-        className=" relative z-30  flex  h-screen w-full items-center justify-center"
+        className="relative z-30  hidden h-screen    w-full items-center justify-center sm:flex"
       >
         {inView ? (
           <div

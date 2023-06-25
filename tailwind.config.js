@@ -65,9 +65,9 @@ module.exports = {
         fadeIn: 'fadeIn 1.2s ease-in-out',
         pdfadeIn: 'fadeIn .2s ease-in-out',
         pageBgFadeIn: 'fadeIn .5s linear',
-        stickyFadeIn: 'stickyFadeIn .01s',
-        longStickyFadeIn: 'stickyFadeIn 5s',
-        videoFadeIn: 'videoFadeIn 6s linear',
+        stickyFadeIn: 'stickyFadeIn .01s ease-in-out',
+        longStickyFadeIn: 'stickyFadeIn 6s ease-in-out',
+        videoFadeIn: 'videoFadeIn 6s ease-in-out',
         carousel: 'marquee 10s linear infinite',
         blink: 'blink 1.4s both infinite'
       },

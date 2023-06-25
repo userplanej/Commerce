@@ -14,13 +14,16 @@ export function Intrigue({}: {}) {
 
   const handleTransitionEnd = (e: AnimationEvent<HTMLDivElement>) => {
     e.preventDefault();
-    console.log('#########HandleOnTransition');
+
     const elem = document.getElementById('sectionintregue');
     elem && elem.classList.remove('sticky');
     elem && elem.classList.remove('top-0');
     elem && elem.classList.remove('left-0');
     elem && elem.classList.add('absolute');
-    elem && elem.scrollIntoView();
+    const videoelem = document.getElementById('video');
+    videoelem && videoelem.classList.remove('animate-videoFadeIn');
+    const elm2 = document.getElementById('sectionintriguecaption');
+    elm2 && elm2.scrollIntoView();
   };
   return (
     <>
@@ -33,6 +36,7 @@ export function Intrigue({}: {}) {
             <>
               <div id="Hero" className="flex h-screen w-full items-center justify-center">
                 <video
+                  id="video"
                   controls={false}
                   autoPlay={true}
                   muted={true}
@@ -42,34 +46,14 @@ export function Intrigue({}: {}) {
                   <source src="LVMH-Hero.mp4" type="video/webm" />
                 </video>
               </div>
-              <div id="MHero" className="flex h-screen w-full items-center justify-center">
-                <video
-                  controls={false}
-                  autoPlay={true}
-                  muted={true}
-                  loop={true}
-                  className=" h-screen  w-full animate-videoFadeIn sm:hidden"
-                >
-                  <source src="LVMH-MHero.mp4" type="video/webm" />
-                </video>
-              </div>
             </>
-          ) : (
-            <div id="Hero" className="flex h-screen w-full items-center justify-center">
-              <video
-                controls={false}
-                autoPlay={true}
-                muted={true}
-                loop={true}
-                className="hidden h-[73%] w-[73%] animate-videoFadeIn opacity-25 sm:block"
-              >
-                <source src="LVMH-Hero.mp4" type="video/webm" />
-              </video>
-            </div>
-          )}
+          ) : null}
         </div>
       </div>
-      <div className=" relative flex  h-screen  w-full items-center justify-center">
+      <div
+        id="sectionintriguecaption"
+        className=" relative flex  h-screen  w-full items-center justify-center"
+      >
         {inView ? (
           <div
             onAnimationEnd={(e: AnimationEvent<HTMLDivElement>) => handleTransitionEnd(e)}
