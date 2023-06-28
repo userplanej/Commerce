@@ -1,8 +1,6 @@
 import { Carousel } from 'components/carousel';
 import { CtaBanner } from 'components/cta-banner';
-import { FerrariInterior } from 'components/ferrari-interior';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import { Intrigue } from 'components/intrigue';
 import Footer from 'components/layout/footer';
 import { LVMHMoodBoard } from 'components/moodboard';
 import { SpaceEnergySection } from 'components/spaceenergy';
@@ -49,9 +47,9 @@ export default async function HomePage() {
         ctaTo="/"
         variant="secondary"
       />
-      <FerrariInterior />
+
       <LVMHMoodBoard />
-      <Intrigue />
+
       <SpaceEnergySection />
       <TremorSection />
       {/* @ts-expect-error Server Component */}
