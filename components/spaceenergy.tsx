@@ -28,12 +28,11 @@ export function SpaceEnergySection({}: {}) {
       {
         opacity: 0.25,
         y: 60,
-        duration: 1.6,
         ease: 'power3'
       },
       {
         opacity: 1,
-        y: 0,
+        y: -60,
         ease: 'power3',
         scrollTrigger: {
           // @ts-ignore
@@ -60,13 +59,13 @@ export function SpaceEnergySection({}: {}) {
       },
       {
         opacity: 1,
-        y: 0,
+        y: 50,
         ease: 'power3',
         scrollTrigger: {
           // @ts-ignore
           trigger: element.querySelector('.spaceEnergyGsapBound'),
           start: 'top 60%',
-          end: 'bottom 100%',
+          end: 'bottom 80%', // spaceEnergyGsapMedia
           scrub: true
         }
       }
@@ -78,9 +77,9 @@ export function SpaceEnergySection({}: {}) {
       <div ref={ref_spaceEnergy} id="SpaceEnergySection" className="relative h-screen w-full">
         <canvas className="gradientStyles" id="gradient-canvas" data-transition-in />
 
-        <div className="spaceEnergyGsapBound flex h-full w-full items-center justify-between align-middle ">
-          <div className="container  flex h-[33vh] items-start justify-center ">
-            <div className="  mr-2 h-[196px] w-[313px] leading-7">
+        <div className="spaceEnergyGsapBound flex h-full w-full flex-col items-center justify-between align-middle sm:flex-row ">
+          <div className="container  flex h-[50vh] w-[100vw] items-center justify-center align-middle sm:h-[33vh] sm:w-[50vw] sm:-translate-y-6 sm:transform">
+            <div className="  mr-2 w-[80vw] sm:h-[196px] sm:w-[313px] sm:leading-7">
               <p
                 className="spaceEnergyGsappContent"
                 style={{
@@ -96,13 +95,26 @@ export function SpaceEnergySection({}: {}) {
             </div>
           </div>
 
-          <div className=" flex-1">
+          <div className="hidden flex-1 sm:block">
             <Image
               src="/vulgari1.webp"
               alt="interior-1"
               width="810"
               height="542"
+              quality={100}
               sizes="50vw"
+              className="spaceEnergyGsapMedia"
+              style={{ transform: 'translateY(-0px)', opacity: 0.8 }}
+            />
+          </div>
+          <div className="flex-1 sm:hidden">
+            <Image
+              src="/vulgari1.webp"
+              alt="interior-1"
+              width="400"
+              height="270"
+              quality={100}
+              sizes="100vw"
               className="spaceEnergyGsapMedia"
               style={{ transform: 'translateY(-0px)', opacity: 0.8 }}
             />

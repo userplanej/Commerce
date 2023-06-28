@@ -20,7 +20,6 @@ export function LVMHMoodBoard({}: {}) {
       {
         opacity: 0,
         y: 50,
-        duration: 1.6,
         ease: 'power3'
       },
       {
@@ -45,20 +44,19 @@ export function LVMHMoodBoard({}: {}) {
       // @ts-ignore
       element.querySelector('.pMoodBoardVideo'),
       {
-        opacity: 0.5,
-        y: -50,
-        duration: 1.6,
+        opacity: 0,
+        y: 0,
         ease: 'power3'
       },
       {
         opacity: 1,
-        y: 0,
+        y: -30,
         ease: 'power3',
         scrollTrigger: {
           // @ts-ignore
           trigger: element.querySelector('.moodBoardGsapBound'),
           start: 'top 30%', // pMoodBoardVideo
-          end: 'bottom 80%',
+          end: 'bottom 20%',
           scrub: true
         }
       }
@@ -66,23 +64,26 @@ export function LVMHMoodBoard({}: {}) {
   }, []);
 
   return (
-    <>
-      <section ref={ref_moodboard} id="MoodBoardSection" className="my-10 flex py-10">
-        <div id="media" className="moodBoardGsapBound inset-0 w-[56.6vw] ">
+    <div ref={ref_moodboard}>
+      <section id="MoodBoardSection" className="moodBoardGsapBound m-0 flex p-0 sm:my-10 sm:py-10">
+        <div id="media" className="inset-0 hidden w-[56.6vw] sm:block ">
           <Image
             src="/lvmh-moodboard-left.avif"
             alt="interior-1"
             width="900"
             height="1200"
             sizes="60vw"
-            className="relative"
+            className=" relative "
             style={{ objectFit: 'contain' }}
           />
         </div>
 
-        <div id="description" className=" flex w-[40vw] flex-col p-0 ">
-          <div className=" relative mb-40  flex  h-[33vh] items-start justify-end">
-            <div className="  mr-2  h-[196px] w-[313px] leading-7">
+        <div
+          id="description"
+          className=" flex w-full flex-col-reverse  p-0 sm:w-[40vw] sm:flex-col "
+        >
+          <div className=" relative mb-1 flex  h-[50vh] w-full flex-col items-center justify-center sm:mb-40 sm:h-[33vh] sm:items-end sm:justify-center ">
+            <div className="  mr-2  flex h-full w-[80vw] flex-col items-center justify-center sm:h-[196px] sm:w-[313px] sm:items-start sm:justify-end sm:leading-7">
               <p
                 className="moodBoardGsapDescription"
                 style={{
@@ -98,39 +99,8 @@ export function LVMHMoodBoard({}: {}) {
             </div>
           </div>
 
-          <div className="relative h-[67vh] pl-7">
-            <div
-              id="Hero2"
-              style={{
-                // We position the video wrapper absolutely
-                // to the top of the parent element
-                // (the div in the `App` component).
-                // This only works because we set a `position` in `App`.
-                // position: 'absolute',
-                // top: 0,
-
-                // To make sure the video is
-                // rendered underneath both banners.
-                zIndex: -1,
-
-                // Flex box with these "center" styles to
-                // always center the video, both horizontally
-                // and vertically.
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-
-                // 100% width/height for the horizontal/vertical
-                // alignments with flex to work nicely.
-                width: '100%',
-                height: '100%',
-
-                // Hide any overflow, in case the video sticks-out
-                // below the second banner, which can happen if
-                // the screen size gets too wide.
-                overflow: 'hidden'
-              }}
-            >
+          <div className="relative sm:h-[67vh] sm:pl-7">
+            <div id="Hero2" className="hidden sm:block">
               <video
                 controls={false}
                 autoPlay={true}
@@ -145,17 +115,27 @@ export function LVMHMoodBoard({}: {}) {
                   // Note, 'auto' is the default value anyway,
                   // so you could actually leave this `height` out.
                   height: 'auto',
-                  transform: 'translateY(-50px)',
-                  opacity: 0.5
+                  transform: 'translateY(0px)'
                 }}
                 className="pMoodBoardVideo"
               >
                 <source src="LVMH-mood-small.webm" type="video/webm" />
               </video>
             </div>
+            <div className=" block sm:hidden">
+              <Image
+                src="/lvmh.webp"
+                alt="interior-1"
+                width="400"
+                height="500"
+                sizes="100vw"
+                className="pMoodBoardVideo"
+                style={{ objectFit: 'contain' }}
+              />
+            </div>
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

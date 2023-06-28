@@ -227,8 +227,6 @@ a {
 .container {
   padding: 0px;
   margin: 0 auto;
-  max-width: 50vw;
-  position: relative;
   z-index: 1;
 }
 
