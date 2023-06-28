@@ -31,6 +31,23 @@
   mix-blend-mode: normal;
 }
 
+/*
+html,
+body,
+main {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+*/
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 .gallery-item {
   view-transition-name: item-image;
   contain: paint;
@@ -180,4 +197,49 @@
 .yt-lite.lyt-activated > .lty-playbtn {
   opacity: 0;
   pointer-events: none;
+}
+
+.gradientStyles {
+  position: absolute;
+  inset: 0px;
+  height: 100%;
+  width: 100%;
+  --gradient-color-1: #c3e4ff;
+  --gradient-color-2: #6ec3f4;
+  --gradient-color-3: #eae2ff;
+  --gradient-color-4: #b9beff;
+  opacity: 1;
+  overflow: hidden;
+  z-index: -1;
+}
+
+a {
+  color: #555;
+  font-weight: 400;
+}
+
+.pSection {
+  position: absolute;
+  padding-top: 200px;
+  padding-bottom: 300px;
+}
+
+.container {
+  padding: 0px;
+  margin: 0 auto;
+  max-width: 50vw;
+  position: relative;
+  z-index: 1;
+}
+
+.pContent {
+  width: 65%;
+  padding: 0px 0px;
+  margin-left: 10px;
+}
+
+.pImage {
+  width: 40%;
+  position: relative;
+  max-height: 50vh;
 }

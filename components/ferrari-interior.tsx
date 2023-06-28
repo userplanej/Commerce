@@ -2,10 +2,9 @@
 
 import type { AnimationEvent } from 'react';
 
-import { Button } from '@tremor/react';
 import Image from 'next/image';
 
-//import { Button } from "@tremor/react";
+import { Button } from '@tremor/react';
 
 import { useInView } from 'react-intersection-observer';
 
@@ -20,7 +19,7 @@ export function FerrariInterior({}: {}) {
   const handleTransitionEnd = (e: AnimationEvent<HTMLDivElement>) => {
     e.preventDefault();
     console.log('#########HandleOnTransition');
-    const elem = document.getElementById('sectionhead');
+    const elem = document.getElementById('ferrariInterior');
     elem && elem.classList.remove('sticky');
     elem && elem.classList.remove('top-0');
     elem && elem.classList.remove('left-0');
@@ -32,7 +31,7 @@ export function FerrariInterior({}: {}) {
 
   return (
     <>
-      <div id="sectionhead" className="sticky left-0 top-0  hidden h-screen w-full sm:flex">
+      <div id="ferrariInterior" className="sticky  top-0  h-screen w-full sm:flex">
         <div className="grid h-full w-full grid-cols-7 grid-rows-2 gap-1">
           <div className=" col-span-7 row-span-2 overflow-hidden">
             <Image
@@ -45,6 +44,7 @@ export function FerrariInterior({}: {}) {
           </div>
         </div>
       </div>
+
       <div
         ref={ref}
         id="sectioncaption"
