@@ -18,8 +18,8 @@ export function LVMHMoodBoard({}: {}) {
       // @ts-ignore
       element.querySelector('.moodBoardGsapDescription'),
       {
-        opacity: 0,
-        y: 50,
+        opacity: 0.25,
+        y: 60,
         ease: 'power3'
       },
       {
@@ -37,6 +37,33 @@ export function LVMHMoodBoard({}: {}) {
     );
   }, []);
 
+  // moodBoardGsapDescriptionMobile
+
+  useEffect(() => {
+    const element = ref_moodboard.current;
+    gsap.fromTo(
+      // @ts-ignore
+      element.querySelector('.moodBoardGsapDescriptionMobile'),
+      {
+        opacity: 0.25,
+        y: 60,
+        ease: 'power3'
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power3',
+        scrollTrigger: {
+          // @ts-ignore
+          trigger: element.querySelector('.moodBoardGsapBoundMobile'),
+          start: 'top 60%', // moodBoardGsapDescriptionMobile
+          end: 'bottom 100%',
+          scrub: true
+        }
+      }
+    );
+  }, []);
+
   // pMoodBoardVideo
   useEffect(() => {
     const element = ref_moodboard.current;
@@ -44,7 +71,7 @@ export function LVMHMoodBoard({}: {}) {
       // @ts-ignore
       element.querySelector('.pMoodBoardVideo'),
       {
-        opacity: 0,
+        opacity: 0.25,
         y: 0,
         ease: 'power3'
       },
@@ -82,13 +109,28 @@ export function LVMHMoodBoard({}: {}) {
           id="description"
           className=" flex w-full flex-col-reverse  p-0 sm:w-[40vw] sm:flex-col "
         >
-          <div className=" relative mb-1 flex  h-[50vh] w-full flex-col items-center justify-center sm:mb-40 sm:h-[33vh] sm:items-end sm:justify-center ">
+          <div
+            id="descriptionContainer"
+            className=" moodBoardGsapBoundMobile relative mb-1 flex  h-[50vh] w-full flex-col items-center justify-center sm:mb-40 sm:h-[33vh] sm:items-end sm:justify-center "
+          >
             <div className="  mr-2  flex h-full w-[80vw] flex-col items-center justify-center sm:h-[196px] sm:w-[313px] sm:items-start sm:justify-end sm:leading-7">
               <p
-                className="moodBoardGsapDescription"
+                className="moodBoardGsapDescription hidden sm:block"
                 style={{
-                  transform: 'translateY(50px)',
-                  opacity: 0
+                  transform: 'translateY(60px)',
+                  opacity: 0.25
+                }}
+              >
+                An enduring feminine icon, the Capucines symbolizes the quintessence of Louis
+                Vuitton, crafted with An intuitive blend of elegance, versatility, and savoir-faire.
+                Reimagined in a vibrant spring hue, Zendaya showcases the iconic handbag in Topaz
+                blue.
+              </p>
+              <p
+                className="moodBoardGsapDescriptionMobile block sm:hidden"
+                style={{
+                  transform: 'translateY(60px)',
+                  opacity: 0.25
                 }}
               >
                 An enduring feminine icon, the Capucines symbolizes the quintessence of Louis

@@ -32,7 +32,7 @@ export function SpaceEnergySection({}: {}) {
       },
       {
         opacity: 1,
-        y: -60,
+        y: 0,
         ease: 'power3',
         scrollTrigger: {
           // @ts-ignore
@@ -83,7 +83,7 @@ export function SpaceEnergySection({}: {}) {
               <p
                 className="spaceEnergyGsappContent"
                 style={{
-                  transform: 'translateY(100px)',
+                  transform: 'translateY(60px)',
                   opacity: 0
                 }}
               >
