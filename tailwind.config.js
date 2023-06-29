@@ -105,6 +105,10 @@ module.exports = {
         'tremor-metric': ['1.875rem', { lineHeight: '2.25rem' }]
       },
       keyframes: {
+        flipIn: {
+          from: { opacity: 0 },
+          to: { opacity: 1 }
+        },
         leapsIn: {
           '0%': { transform: 'translateX(0%)', opacity: 0.3 },
           '100% ': { transform: 'translate(20px, -50px)', opacity: 1.0 }
@@ -136,13 +140,17 @@ module.exports = {
         blink: {
           '0%': { opacity: 0.2 },
           '20%': { opacity: 1 },
-          '100% ': { opacity: 0.2 }
+          '40% ': { opacity: 0.2 },
+          '60% ': { opacity: 1 },
+          '80% ': { opacity: 0.2 },
+          '100% ': { opacity: 1 }
         }
       },
       /* @keyframes duration | easing-function | delay |
           iteration-count | direction | fill-mode | play-state | name */
       animation: {
         leapsIn: 'leapsIn 2.5s ease-in-out',
+        flipIn: 'blink 1.4s both ',
         growOut: 'growOut 10s ease-in-out',
         fadeIn: 'fadeIn 1.2s ease-in-out',
         pdfadeIn: 'fadeIn .2s ease-in-out',

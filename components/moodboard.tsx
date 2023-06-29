@@ -6,6 +6,8 @@ import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { useInView } from 'react-intersection-observer';
+
 export function LVMHMoodBoard({}: {}) {
   gsap.registerPlugin(ScrollTrigger);
 
@@ -90,19 +92,36 @@ export function LVMHMoodBoard({}: {}) {
     );
   }, []);
 
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.6
+  });
+
   return (
     <div ref={ref_moodboard}>
       <section id="MoodBoardSection" className="moodBoardGsapBound m-0 flex p-0 sm:my-10 sm:py-10">
-        <div id="media" className="inset-0 hidden w-[56.6vw] sm:block ">
-          <Image
-            src="/lvmh-moodboard-left.avif"
-            alt="interior-1"
-            width="900"
-            height="1200"
-            sizes="60vw"
-            className=" relative "
-            style={{ objectFit: 'contain' }}
-          />
+        <div ref={ref} id="media" className="inset-0 hidden w-[56.6vw] sm:block ">
+          {inView ? (
+            <Image
+              src="/lvmh-moodboard-left.avif"
+              alt="interior-1"
+              width="900"
+              height="1200"
+              sizes="60vw"
+              className="relative animate-flipIn"
+              style={{ objectFit: 'contain' }}
+            />
+          ) : (
+            <Image
+              src="/lvmh-moodboard-left-placeholder-s.webp"
+              alt="interior-1"
+              width="900"
+              height="1200"
+              sizes="60vw"
+              className="animate-fadeIn"
+              style={{ objectFit: 'contain' }}
+            />
+          )}
         </div>
 
         <div
