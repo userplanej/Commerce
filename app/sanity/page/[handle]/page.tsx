@@ -5,7 +5,7 @@ import PortableText from 'components/sanity-ui/portableText/portable-text';
 import { sanityClient } from 'lib/sanity/sanity-rsc-config';
 import { SANITY_PAGE_QUERY } from 'lib/sanity/sanity.queries';
 import { SanityPage } from 'lib/sanity/types';
-export const runtime = 'edge';
+//export const runtime = 'edge';
 
 // TODO : sanity doc 으로부터 seo 세그먼트 읽어와서 반영
 // export async function generateMetadata({
