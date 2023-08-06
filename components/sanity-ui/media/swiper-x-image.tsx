@@ -63,7 +63,7 @@ const generateSizes = (breakpoints, sizes) => {
 // @ts-expect-error
 export default function SwiperXImage(props) {
   const {
-    alt,
+    alt = 'alt',
     blurDataURL,
     crop,
     dataset,

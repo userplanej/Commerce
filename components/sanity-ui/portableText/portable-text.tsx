@@ -5,6 +5,7 @@ import clsx from 'clsx';
 
 import type { PortableTextBlock } from '@sanity/types';
 
+import BlockGrid from 'components/sanity-ui/portableText/blocks/block-grid';
 import LinkExternalAnnotation from './annotations/linkexternal';
 import LinkInternalAnnotation from './annotations/linkinternal';
 import AccordionBlock from './blocks/accordion';
@@ -45,7 +46,7 @@ export default function PortableText({ blocks, centered, className }: Props) {
       blockAccordion: AccordionBlock,
       blockCallout: (props: any) => <CalloutBlock centered={centered} {...props} />,
       blockCallToAction: (props: any) => <CallToActionBlock centered={centered} {...props} />,
-
+      blockGrid: BlockGrid,
       blockImages: (props: any) => <ImagesBlock centered={centered} {...props} />,
       blockProducts: ProductsBlock,
       blockSwiperX: SwiperXBlock,
