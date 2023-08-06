@@ -51,6 +51,7 @@ export default function ProductPill({ onClick, storefrontProduct, variantGid }: 
             {image && (
               <Image
                 fill={true}
+                sizes="120"
                 alt={firstVariant.title}
                 className={clsx('absolute inset-0 h-full w-full object-cover')}
                 src={firstVariant.image}
