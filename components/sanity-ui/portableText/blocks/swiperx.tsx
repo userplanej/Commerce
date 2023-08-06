@@ -18,8 +18,6 @@ export default function SwiperXBlock({ centered = true, value }: Props) {
     return null;
   }
 
-  //console.log('#####SwiperXBlock ' + JSON.stringify(value?.modules));
-
   return (
     <div
       className={clsx(
