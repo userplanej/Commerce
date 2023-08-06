@@ -136,9 +136,9 @@ export default function SanityImage(props) {
   */
 
   // TODO: check for valid range
-  if (options?.blur) {
-    urlDefault = urlDefault.blur(options.blur);
-  }
+  // if (options?.blur) {
+  //   urlDefault = urlDefault.blur(options.blur);
+  // }
   // @ts-expect-error
   urlDefault = urlDefault.url();
 
