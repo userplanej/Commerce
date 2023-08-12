@@ -41,7 +41,8 @@ export default async function SanityPagePage({ params }: { params: { handle: str
       slug: params.handle
     },
     config: {
-      next: { revalidate: 60 }
+      cache: 'force-cache'
+      //next: { revalidate: 60 }
     }
   });
 

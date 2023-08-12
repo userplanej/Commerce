@@ -97,7 +97,7 @@ const ModuleContent = ({ media }: MProps) => {
     case 'image': {
       return (
         <SwiperXImage
-          alt={media?.altText}
+          alt={'swiperX image'}
           crop={media?.crop}
           dataset={sanityDataset}
           hotspot={media?.hotspot}
