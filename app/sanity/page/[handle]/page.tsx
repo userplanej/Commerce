@@ -1,5 +1,4 @@
 import Footer from 'components/layout/footer';
-import PageHero from 'components/sanity-ui/heroes/page';
 import { sanityClient } from 'lib/sanity/sanity-rsc-config';
 import { SANITY_PAGE_QUERY } from 'lib/sanity/sanity.queries';
 import { SanityPage } from 'lib/sanity/types';
@@ -49,7 +48,7 @@ export default async function SanityPagePage({ params }: { params: { handle: str
   return (
     <section>
       {/* Page hero */}
-      <PageHero fallbackTitle={page.title} hero={page.hero!} />
+
       {/* Body */}
 
       {/* @ts-expect-error Server Component */}
