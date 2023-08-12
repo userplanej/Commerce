@@ -1,8 +1,8 @@
 import { dataset, projectId } from 'lib/sanity/sanity-config';
 import { SanityImageWithProductHotspots } from 'lib/sanity/types';
-import { Product } from 'lib/shopify/types';
 
 import clsx from 'clsx';
+import { Product } from 'lib/shopify/types';
 import { Suspense } from 'react';
 import ProductHotspot from '../product/hotspot';
 import SanityImage from './sanity-image';
@@ -19,11 +19,6 @@ export default function ImageWithProductHotspots({ content }: Props) {
       <Suspense fallback={<p>Loading...</p>}>
         {content.productHotspots?.map((hotspot) => {
           const storefrontProduct = hotspot?.product as unknown as Product;
-
-          // console.log(
-          //   'ImageWithProductHotspots storefrontProduct : ' + JSON.stringify(storefrontProduct)
-          // );
-
           return (
             <ProductHotspot
               key={hotspot._key}

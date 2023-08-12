@@ -22,8 +22,8 @@ export default function ProductHotspot({ storefrontProduct, x, y }: Props) {
   }
   const defaultTippyProps: Omit<TippyProps, 'content' | 'children'> = {
     hideOnClick: false,
-    interactive: true
-    //sticky: true
+    interactive: true,
+    sticky: true
   };
   return (
     <Tippy
