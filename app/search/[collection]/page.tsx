@@ -31,7 +31,8 @@ import ProductGridItems from 'components/layout/product-grid-items';
 // }
 
 export default async function CategoryPage({ params }: { params: { collection: string } }) {
-  const products = await getCollectionProducts(params.collection);
+  const { collection } = await params;
+  const products = await getCollectionProducts(collection);
 
   console.log('search collection - products :: ' + products);
 

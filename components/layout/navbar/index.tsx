@@ -1,8 +1,5 @@
 import Link from 'next/link';
-import { Suspense } from 'react';
 
-import Cart from 'components/cart';
-import CartIcon from 'components/icons/cart';
 import LogoIcon from 'components/icons/logo';
 import { getMenu } from 'lib/shopify';
 import { Menu } from 'lib/shopify/types';
@@ -13,7 +10,7 @@ export default async function Navbar() {
   const menu = await getMenu('next-js-frontend-header-menu');
 
   return (
-    <nav className="relative flex w-full items-center justify-between overflow-hidden bg-white p-1 dark:bg-black sm:p-4 lg:px-6 lg:pt-7">
+    <nav className="relative flex w-full items-center justify-between overflow-hidden bg-transparent sm:p-4 lg:px-6 lg:pt-7">
       <div className="block w-1/3 md:hidden">
         <MobileMenu menu={menu} />
       </div>
@@ -44,13 +41,6 @@ export default async function Navbar() {
       </div>
       <div className="hidden w-1/3 md:block">
         <Search />
-      </div>
-
-      <div className="flex w-1/3 justify-end">
-        <Suspense fallback={<CartIcon className="h-6" />}>
-          {/* @ts-expect-error Server Component */}
-          <Cart />
-        </Suspense>
       </div>
     </nav>
   );

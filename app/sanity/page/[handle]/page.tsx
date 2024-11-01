@@ -34,11 +34,11 @@ import { SanityPage } from 'lib/sanity/types';
 
 export default async function SanityPagePage({ params }: { params: { handle: string } }) {
   //const page = await clientFetch(SANITY_PAGE_QUERY, { slug: params.handle });
-
+  const { handle } = await params;
   const page = await sanityClient.fetch<SanityPage>({
     query: SANITY_PAGE_QUERY,
     params: {
-      slug: params.handle
+      slug: handle
     },
     config: {
       cache: 'force-cache'

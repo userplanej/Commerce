@@ -1,10 +1,9 @@
 import { Carousel } from 'components/carousel';
 import { CtaBanner } from 'components/cta-banner';
 import { ThreeItemGrid } from 'components/grid/three-items';
-import Footer from 'components/layout/footer';
 import { LVMHMoodBoard } from 'components/moodboard';
 import { SpaceEnergySection } from 'components/spaceenergy';
-import { TremorSection } from 'components/tremor-page';
+import { Suspense } from 'react';
 import { getTranslations } from './translations.server';
 
 // export const runtime = 'edge';
@@ -34,10 +33,10 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* @ts-expect-error Server Component */}
-      <ThreeItemGrid />
+      <div className="bg-gradient-to-b from-orange-500/10 via-white/50 to-sky-900/80">
+        <ThreeItemGrid />
+      </div>
 
-      {/* @ts-expect-error Server Component */}
       <Carousel />
 
       <CtaBanner
@@ -47,13 +46,13 @@ export default async function HomePage() {
         ctaTo="/"
         variant="secondary"
       />
+      <Suspense>
+        <LVMHMoodBoard />
+      </Suspense>
 
-      <LVMHMoodBoard />
-
-      <SpaceEnergySection />
-      <TremorSection />
-      {/* @ts-expect-error Server Component */}
-      <Footer />
+      <Suspense>
+        <SpaceEnergySection />
+      </Suspense>
     </>
   );
 }

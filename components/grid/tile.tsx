@@ -1,12 +1,11 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 
-import Price from 'components/price';
+import Label from 'components/label';
 import { ForwardedRef, forwardRef } from 'react';
 
 export function GridTileImage({
   isInteractive = true,
-  background,
   active,
   labels,
   verticalWriteMode,
@@ -14,11 +13,11 @@ export function GridTileImage({
   ...props
 }: {
   isInteractive?: boolean;
-  background?: 'white' | 'pink' | 'purple' | 'black' | 'purple-dark' | 'blue' | 'cyan' | 'gray';
   verticalWriteMode?: boolean;
   decorate?: boolean;
   active?: boolean;
   labels?: {
+    position?: 'center' | 'bottom';
     title: string;
     amount: string;
     currencyCode: string;
@@ -29,58 +28,47 @@ export function GridTileImage({
     brand = labels!.title ? labels!.title.split('|')[0] : null;
 
   return (
-    <>
+    <div className="h-full w-full bg-transparent">
       {verticalWriteMode ? (
         <div>{labels!.title ? <div className="writing-mode-h">{brand}</div> : null}</div>
       ) : null}
-      <div>
+
+      <div className="flex h-full w-full flex-row bg-transparent">
         {verticalWriteMode ? (
           labels!.title ? (
             <div className="writing-mode-v">{title}</div>
           ) : null
         ) : null}
-        <div
-          className={clsx('  relative mt-3 flex h-0  items-center  justify-center  pt-[100%]', {
-            'bg-white dark:bg-white': background === 'white',
-            'bg-[#ff0080] dark:bg-[#ff0080]': background === 'pink',
-            'bg-[#7928ca] dark:bg-[#7928ca]': background === 'purple',
-            'bg-gray-900 dark:bg-gray-900': background === 'black',
-            'bg-violetDark dark:bg-violetDark': background === 'purple-dark',
-            'bg-blue-500 dark:bg-blue-500': background === 'blue',
-            'bg-cyan-500 dark:bg-cyan-500': background === 'cyan',
-            'bg-gray-100 dark:bg-gray-100': background === 'gray',
-            'bg-gray-100 dark:bg-gray-900': !background
-          })}
-        >
-          <div
-            className={clsx('absolute top-0 h-[100%] w-full  bg-white', {
-              'left-10': decorate === true,
-              'left-[2vw]': decorate === false
-            })}
-          >
-            <Image
-              className={clsx('block  h-[80%] w-[80%]  ', {
-                'transition duration-300 ease-in-out hover:scale-105': isInteractive,
-                'rounded-3xl': decorate === true
-              })}
-              {...props}
-              alt={props.title || ''}
-            />
-          </div>
-        </div>
-        {labels!.title ? (
-          <div className=" ml-[2vw]  mt-0 block text-sm text-black dark:text-white">
-            <h3>{labels!.title}</h3>
-          </div>
-        ) : null}
 
-        {labels ? (
-          <div className="ml-[2vw]   mt-0 block  text-sm text-black dark:text-white">
-            <Price className="" amount={labels.amount} currencyCode={labels.currencyCode} />
-          </div>
-        ) : null}
+        <div
+          className={clsx(
+            'group flex h-[90%] w-[90%] items-center justify-center overflow-hidden rounded-lg border bg-transparent hover:border-blue-600 dark:bg-black',
+            {
+              relative: labels,
+              'border-2 border-blue-600': active,
+              'border-neutral-200 dark:border-neutral-800': !active
+            }
+          )}
+        >
+          <Image
+            className={clsx('relative object-contain', {
+              'transition duration-300 ease-in-out hover:scale-105': isInteractive
+            })}
+            {...props}
+            alt={props.title || ''}
+          />
+
+          {labels ? (
+            <Label
+              title={labels.title}
+              amount={labels.amount}
+              currencyCode={labels.currencyCode}
+              position={labels.position}
+            />
+          ) : null}
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

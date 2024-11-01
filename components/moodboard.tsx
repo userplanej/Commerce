@@ -98,7 +98,7 @@ export function LVMHMoodBoard({}: {}) {
   });
 
   return (
-    <div ref={ref_moodboard}>
+    <div ref={ref_moodboard} className="m-0 p-0">
       <section id="MoodBoardSection" className="moodBoardGsapBound m-0 flex p-0 sm:my-10 sm:py-10">
         <div ref={ref} id="media" className="inset-0 hidden w-[56.6vw] sm:block ">
           {inView ? (

@@ -52,7 +52,8 @@ import { Image } from 'lib/shopify/types';
 // }
 
 export default async function ProductPage({ params }: { params: { handle: string } }) {
-  const product = await getProduct(params.handle);
+  const { handle } = await params;
+  const product = await getProduct(handle);
 
   if (!product) return notFound();
   return (

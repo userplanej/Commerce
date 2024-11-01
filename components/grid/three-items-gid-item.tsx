@@ -7,12 +7,10 @@ import Link from 'next/link';
 
 export default function ThreeItemGridItem({
   item,
-  size,
-  background
+  size
 }: {
   item: Product;
   size: 'full' | 'half';
-  background: 'white' | 'pink' | 'purple' | 'black';
 }) {
   return (
     <div
@@ -21,14 +19,16 @@ export default function ThreeItemGridItem({
       <Link className="block h-full" href={`/sanity/page/${item.handle}`}>
         <GridTileImage
           src={item.featuredImage.url}
-          width={size === 'full' ? 1080 : 540}
-          height={size === 'full' ? 1080 : 540}
+          fill={true}
+          sizes={
+            size === 'full' ? '(min-width: 768px) 66vw, 100vw' : '(min-width: 768px) 33vw, 100vw'
+          }
           verticalWriteMode={size === 'full' ? true : false}
           decorate={true}
           priority={true}
-          background={background}
           alt={item.title}
           labels={{
+            position: size === 'full' ? 'bottom' : 'bottom',
             title: item.title as string,
             amount: item.priceRange.maxVariantPrice.amount,
             currencyCode: item.priceRange.maxVariantPrice.currencyCode
