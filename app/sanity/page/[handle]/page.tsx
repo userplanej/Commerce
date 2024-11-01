@@ -1,6 +1,4 @@
-import clsx from 'clsx';
 import Footer from 'components/layout/footer';
-import PortableText from 'components/sanity-ui/portableText/portable-text';
 import { sanityClient } from 'lib/sanity/sanity-rsc-config';
 import { SANITY_PAGE_QUERY } from 'lib/sanity/sanity.queries';
 import { SanityPage } from 'lib/sanity/types';
@@ -52,16 +50,7 @@ export default async function SanityPagePage({ params }: { params: { handle: str
       {/* Page hero */}
 
       {/* Body */}
-      {page.body && (
-        <PortableText
-          blocks={page.body}
-          centered
-          className={clsx(
-            'mx-auto flex  max-w-[660px] flex-col px-4 pb-24 pt-8', //
-            'md:px-8'
-          )}
-        />
-      )}
+
       {/* @ts-expect-error Server Component */}
       <Footer />
     </section>
